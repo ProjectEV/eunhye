@@ -52,7 +52,9 @@ public class ProjectController {
 	
 	//마이페이지
 //	@RequestMapping(value="product/mypage", method=RequestMethod.GET)
-//	public ModelAndView ProductMypage()
+//	public ModelAndView ProductMypage() {
+//		
+//	}
 
 
 
