@@ -7,5 +7,13 @@ public interface ProjectDAO {
 	public int totalRecord1();
 
 	public List<InventoryVO> listInventory();
+	
+	//검색
+	public List<ProductVO> productSearch(String keyword);
+	
+	//제품 상세페이지
+	public ProductVO productDetail(String product_id);
+
+
 
 }

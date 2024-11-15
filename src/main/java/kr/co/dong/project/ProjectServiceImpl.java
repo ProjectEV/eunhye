@@ -25,4 +25,16 @@ public class ProjectServiceImpl implements ProjectService {
 		return projectDAO.listInventory();
 	}
 
+	@Override
+	public List<ProductVO> productSearch(String keyword) {
+		// TODO Auto-generated method stub
+		return projectDAO.productSearch(keyword);
+	}
+
+	@Override
+	public ProductVO productDetail(String product_id) {
+		// TODO Auto-generated method stub
+		return projectDAO.productDetail(product_id);
+	}
+
 }

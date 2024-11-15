@@ -5,7 +5,11 @@ public class ProductVO {
 	private int product_price;
 	private String product_name;
 	private String product_content;
-	private int category_id;
+	private String product_category;
+	private int product_remain;
+	private int product_sales;
+	
+	
 	public String getProduct_id() {
 		return product_id;
 	}
@@ -30,15 +34,29 @@ public class ProductVO {
 	public void setProduct_content(String product_content) {
 		this.product_content = product_content;
 	}
-	public int getCategory_id() {
-		return category_id;
+	public String getProduct_category() {
+		return product_category;
 	}
-	public void setCategory_id(int category_id) {
-		this.category_id = category_id;
+	public void setProduct_category(String product_category) {
+		this.product_category = product_category;
+	}
+	public int getProduct_remain() {
+		return product_remain;
+	}
+	public void setProduct_remain(int product_remain) {
+		this.product_remain = product_remain;
+	}
+	public int getProduct_sales() {
+		return product_sales;
+	}
+	public void setProduct_sales(int product_sales) {
+		this.product_sales = product_sales;
 	}
 	@Override
 	public String toString() {
-		return "BoardDTO [product_id=" + product_id + ", product_price=" + product_price + ", product_name="
-				+ product_name + ", product_content=" + product_content + ", category_id=" + category_id + "]";
+		return "ProductVO [product_id=" + product_id + ", product_price=" + product_price + ", product_name="
+				+ product_name + ", product_content=" + product_content + ", product_category=" + product_category
+				+ ", product_remain=" + product_remain + ", product_sales=" + product_sales + "]";
 	}
+	
 }

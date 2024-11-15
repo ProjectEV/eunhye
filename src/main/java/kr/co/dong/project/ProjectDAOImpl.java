@@ -24,9 +24,19 @@ public class ProjectDAOImpl implements ProjectDAO {
 	@Override
 	public List<InventoryVO> listInventory() {
 		// TODO Auto-generated method stub
-
-
 		return sqlSession.selectList(nameSpace + ".findAll");
+	}
+
+	@Override
+	public List<ProductVO> productSearch(String keyword) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(nameSpace + ".productSearch", keyword);
+	}
+
+	@Override
+	public ProductVO productDetail(String product_id) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(nameSpace + ".productDetail", product_id);
 	}
 
 }

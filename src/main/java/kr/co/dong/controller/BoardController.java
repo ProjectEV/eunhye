@@ -31,10 +31,10 @@ public class BoardController {
 	@Inject
 	BoardService boardService;
 
-	@RequestMapping(value="product/detail", method=RequestMethod.GET)
-	public String productList() {
-		return "product_detail";
-	}
+//	@RequestMapping(value="product/detail", method=RequestMethod.GET)
+//	public String productList() {
+//		return "product_detail";
+//	}
 
 	@RequestMapping(value="product/buy", method=RequestMethod.GET)
 	public String productBuy() {

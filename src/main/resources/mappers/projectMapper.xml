@@ -14,7 +14,20 @@
       order by inventory_product_id desc
   </select>
   
+   <!-- 검색 -->
+   <select id="productSearch" parameterType="java.lang.String" resultType="ProductVO">
+	  select *
+	  from product
+	  where product_name like concat('%',#{keyword},'%')
+	  order by product_id desc
+  </select>
   
+   <!-- 제품 상세페이지 -->
+   <select id="productDetail" parameterType="java.lang.String" resultType="ProductVO">
+	  select *
+	  from product
+	  where product_id = #{product_id}
+   </select>
   
   
   
