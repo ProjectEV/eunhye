@@ -36,21 +36,29 @@
 
 	<div style="">
 		<div style="margin: 0 auto; width: 700px;">
-		
-			<c:forEach var="buy" items="${list}">
+			<c:forEach var="buy" items="${buy_list}">
 			 	<div style="margin: 20px 10px; padding: 10px; border: 1px solid rgb(235, 235, 235); ">
-					  <p>#{buy.}</p>
+					  <p>${buy.buy_regdate}</p>
+					  <c:forEach var="buydetail" items="${buy_detail_list}">
+						  	<c:if test="${buy.buy_no == buydetail.buydetail_buyno}">
+  							  	<c:forEach var="buydetailProduct" items="${buy_detail_product_list}">
+  									  	<c:if test="${buydetail.buydetail_productid == buydetailProduct.product_id}">
+						  	
+										  	<div>
+										  		<img style="width: 50px; height: 50px;" src="${pageContext.request.contextPath}/resources/images/notebook2.jpg" alt="마이페이지 제품 사진">
+											    <p>${buydetailProduct.product_name}</p>
+											    <p>${buydetailProduct.product_price}</p>
+ 												<p>${buydetail.buydetail_amount}</p>
+										  	</div>
+										  	
+			  							 </c:if>					  	
+							  	
+		  						  </c:forEach>
+							  	
+						  	</c:if>					  	
+					  </c:forEach>
 			 	</div>
-			</c:forEach>
-			
-			 	<div style="margin: 20px 10px; padding: 10px; border: 1px solid rgb(235, 235, 235); ">
-					  <input type="radio" name="${address.no}" value="${address.no}">
-					  <label style="font-weight: bold;">${address.name}주소</label><br>
-		  			  <label style="margin: 10px 0 0 0; font-size: 13px">${address.content}서울특별시 땡땡구 땡땡동</label><br>
-			 	</div>
-
-			<button style="margin: 30px 300px;" id="btn1" onclick="">선택완료</button>
-			
+			</c:forEach>	
 		</div>	
 	</div>
 

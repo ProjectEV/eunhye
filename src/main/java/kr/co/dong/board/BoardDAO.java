@@ -14,7 +14,6 @@ public interface BoardDAO {
 	//전체목록을 가져오는 메소드
 //	public List<BoardDTO> list();
 
-
 	public int totalRecord();
 
 	public List<BoardDTO> listBoard(int start, int pageSIZE);

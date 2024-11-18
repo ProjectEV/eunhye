@@ -37,4 +37,22 @@ public class ProjectServiceImpl implements ProjectService {
 		return projectDAO.productDetail(product_id);
 	}
 
+	@Override
+	public List<BuyVO> mypage(String userid) {
+		// TODO Auto-generated method stub
+		return projectDAO.mypage(userid);
+	}
+
+	@Override
+	public List<BuyDetailVO> mypageDetail(int[] buyno) {
+		// TODO Auto-generated method stub
+		return projectDAO.mypageDetail(buyno);
+	}
+
+	@Override
+	public List<ProductVO> mypageDetailProduct(String[] productno) {
+		// TODO Auto-generated method stub
+		return projectDAO.mypageDetailProduct(productno);
+	}
+
 }

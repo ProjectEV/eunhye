@@ -29,6 +29,31 @@
 	  where product_id = #{product_id}
    </select>
   
-  
+   <!-- 마이페이지 -->
+   <select id="mypage" parameterType="java.lang.String" resultType="BuyVO">
+	  select *
+	  from buy
+	  where buy_userid = #{userid}
+   </select>
+   
+   <!-- 마이페이지 디테일 -->
+   <select id="mypageDetail" parameterType="java.lang.Integer" resultType="BuyDetailVO">
+	    select * 
+	    from buydetail 
+	    where buydetail_buyno in 
+	    <foreach collection="array" item="buyno" open="(" separator="," close=")">
+	        #{buyno}
+	    </foreach>
+	</select>
+	
+   <!-- 마이페이지 디테일 -->
+   <select id="mypageDetailProduct" parameterType="java.lang.String" resultType="ProductVO">
+	    select * 
+	    from product 
+	    where product_id in 
+	    <foreach collection="array" item="productno" open="(" separator="," close=")">
+	        #{productno}
+	    </foreach>
+	</select>
   
   </mapper>

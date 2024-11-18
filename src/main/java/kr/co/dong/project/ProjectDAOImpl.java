@@ -39,4 +39,22 @@ public class ProjectDAOImpl implements ProjectDAO {
 		return sqlSession.selectOne(nameSpace + ".productDetail", product_id);
 	}
 
+	@Override
+	public List<BuyVO> mypage(String userid) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(nameSpace + ".mypage", userid);
+	}
+
+	@Override
+	public List<BuyDetailVO> mypageDetail(int[] buyno) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(nameSpace + ".mypageDetail", buyno);
+	}
+
+	@Override
+	public List<ProductVO> mypageDetailProduct(String[] productno) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(nameSpace + ".mypageDetailProduct", productno);
+	}
+
 }
