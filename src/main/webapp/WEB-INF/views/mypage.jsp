@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>마이페이지</title>
-
 <link rel="stylesheet" href="https://showcases.yalco.kr/html-css/01-06/table.css">
   <style>
   
