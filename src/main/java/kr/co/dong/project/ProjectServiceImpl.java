@@ -55,4 +55,34 @@ public class ProjectServiceImpl implements ProjectService {
 		return projectDAO.mypageDetailProduct(productno);
 	}
 
+	@Override
+	public List<AddressVO> addressManageSelect1(String userid) {
+		// TODO Auto-generated method stub
+		return projectDAO.addressManageSelect1(userid);
+	}
+
+	@Override
+	public AddressVO addressManageUpdate1(int address_no) {
+		// TODO Auto-generated method stub
+		return projectDAO.addressManageUpdate1(address_no);
+	}
+
+	@Override
+	public int addressManageUpdate2(AddressVO addressVO) {
+		// TODO Auto-generated method stub
+		return projectDAO.addressManageUpdate2(addressVO);
+	}
+
+	@Override
+	public int addressManageAdd2(AddressVO addressVO) {
+		// TODO Auto-generated method stub
+		return projectDAO.addressManageAdd2(addressVO);
+	}
+
+	@Override
+	public int addressManageDelete1(int address_no) {
+		// TODO Auto-generated method stub
+		return projectDAO.addressManageDelete1(address_no);
+	}
+
 }

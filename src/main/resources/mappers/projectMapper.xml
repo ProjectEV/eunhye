@@ -55,5 +55,38 @@
 	        #{productno}
 	    </foreach>
 	</select>
+	
+	<!-- 주소지 조회(get) -->
+   <select id="addressManageSelect1" parameterType="java.lang.String" resultType="AddressVO">
+	  select *
+	  from address
+	  where address_userid = #{userid}
+   </select>
+   
+   	<!-- 주소지 수정(get) -->
+   <select id="addressManageUpdate1" parameterType="java.lang.Integer" resultType="AddressVO">
+	  select *
+	  from address
+	  where address_no = #{address_no}
+   </select>
+   
+    <!-- 주소지 수정(post) -->
+   <update id="addressManageUpdate2" parameterType="AddressVO">
+	  update address
+	  set address_main=0, address_name=#{address_name}, address_content=#{address_content}
+	  where address_no = #{address_no}
+   </update>
+   
+   <!-- 주소지 추가(post) -->
+   <insert id="addressManageAdd2" parameterType="AddressVO">
+   		insert into address(address_userid, address_main, address_name, address_content)
+		values (#{address_userid}, 0, #{address_name}, #{address_content})
+   </insert>
+   
+   <!-- 주소지 삭제(get) -->
+   <delete id="addressManageDelete1" parameterType="java.lang.Integer">
+   	  delete from address
+	  where address_no = #{address_no}
+   </delete>
   
   </mapper>

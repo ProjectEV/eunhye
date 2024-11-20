@@ -57,4 +57,34 @@ public class ProjectDAOImpl implements ProjectDAO {
 		return sqlSession.selectList(nameSpace + ".mypageDetailProduct", productno);
 	}
 
+	@Override
+	public List<AddressVO> addressManageSelect1(String userid) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(nameSpace + ".addressManageSelect1", userid);
+	}
+
+	@Override
+	public AddressVO addressManageUpdate1(int address_no) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(nameSpace + ".addressManageUpdate1", address_no);
+	}
+
+	@Override
+	public int addressManageUpdate2(AddressVO addressVO) {
+		// TODO Auto-generated method stub
+		return sqlSession.update(nameSpace + ".addressManageUpdate2", addressVO);
+	}
+
+	@Override
+	public int addressManageAdd2(AddressVO addressVO) {
+		// TODO Auto-generated method stub
+		return sqlSession.insert(nameSpace + ".addressManageAdd2", addressVO);
+	}
+
+	@Override
+	public int addressManageDelete1(int address_no) {
+		// TODO Auto-generated method stub
+		return sqlSession.delete(nameSpace + ".addressManageDelete1", address_no);
+	}
+
 }

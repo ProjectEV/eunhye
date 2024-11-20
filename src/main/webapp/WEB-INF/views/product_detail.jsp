@@ -12,7 +12,7 @@
 <%@ include file="header.jsp" %>
 
 <div style="margin: 50px 0 0 0">
-	<div style="text-align: center;">		
+	<div style="text-align: center;">	
 		<img style="width: 400px; height: 400px; border: 1px solid rgb(146, 146, 146);" src="${pageContext.request.contextPath}/resources/images/notebook2.jpg" alt="제품메인사진">
 	</div>
 

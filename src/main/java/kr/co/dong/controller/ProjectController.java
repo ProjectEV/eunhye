@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import kr.co.dong.project.AddressVO;
 import kr.co.dong.project.BuyDetailVO;
 import kr.co.dong.project.BuyVO;
 import kr.co.dong.project.ProductVO;
@@ -45,13 +46,6 @@ public class ProjectController {
 		
 		return "product_detail";
 	}
-	
-	
-	//결제
-	
-	
-	//주소지 선택
-	
 	
 	//마이페이지
 	@RequestMapping(value="product/mypage", method=RequestMethod.GET)
@@ -91,6 +85,74 @@ public class ProjectController {
 		return "mypage";
 	}
 
+	//주소지 관리 - 조회(get)
+	@RequestMapping(value="product/address_manage", method=RequestMethod.GET)
+	public String address_manage(HttpSession session, Model model) {
+		//아이디 가져오기
+//		String userid = session.getId();
+		String userid = "yoonho";
+		
+		//주소지 리스트 조회
+		List<AddressVO> addressList = projectService.addressManageSelect1(userid);
+		model.addAttribute("list", addressList);
+		
+		return "address_manage";
+	}
+	
+	//주소지 관리 - 조회(post, 저장버튼)
+	@RequestMapping(value="product/address_manage", method=RequestMethod.POST)
+	public String address_manage() {
+		return "mypage";
+	}
+	
+	//주소지 관리 - 수정(get)
+	@RequestMapping(value="product/address_manage/update", method=RequestMethod.GET)
+	public String address_manage_update(@RequestParam("address_no")int address_no, HttpSession session, Model model) {
+		//수정을 위한 주소지 조회
+		AddressVO addressVO = projectService.addressManageUpdate1(address_no);
+		model.addAttribute("address", addressVO);
+		
+		return "address_update";
+	}
+	
+	//주소지 관리 - 수정(post)
+	@RequestMapping(value="product/address_manage/update", method=RequestMethod.POST)
+	public String address_manage_update(AddressVO addressVO, Model model) {
+		//주소지 리스트 수정 update
+		int result = projectService.addressManageUpdate2(addressVO);
+		
+		return "redirect:/product/address_manage";
+	}
+	
+	//주소지 관리 - 추가(get)
+	@RequestMapping(value="product/address_manage/add", method=RequestMethod.GET)
+	public String address_manage_update() {
+		return "address_add";
+	}
+	
+	//주소지 관리 - 추가(post)
+	@RequestMapping(value="product/address_manage/add", method=RequestMethod.POST)
+	public String address_manage_update(HttpSession session, AddressVO addressVO) {
+		//아이디 가져오기
+//		String userid = session.getId();
+		String userid = "yoonho";
+		
+		addressVO.setAddress_userid(userid);
+		
+		//주소지 리스트 추가
+		int result = projectService.addressManageAdd2(addressVO);
+
+		return "redirect:/product/address_manage";
+	}
+	
+	//주소지 관리 - 삭제(get)
+	@RequestMapping(value="product/address_manage/delete", method=RequestMethod.GET)
+	public String address_manage_delete(@RequestParam("address_no")int address_no) {
+		//주소지 리스트 삭제
+		int result = projectService.addressManageDelete1(address_no);
+		
+		return "redirect:/product/address_manage";
+	}
 
 
 }

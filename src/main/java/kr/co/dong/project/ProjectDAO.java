@@ -22,6 +22,21 @@ public interface ProjectDAO {
 	
 	//마이페이지 Product 테이블 조회
 	public List<ProductVO> mypageDetailProduct(String[] productno);
+	
+	//주소지 관리 주소지 리스트 조회
+	public List<AddressVO> addressManageSelect1 (String userid);
+	
+	//주소지 관리 주소지 수정(get)
+	public AddressVO addressManageUpdate1(int address_no);
+	
+	//주소지 관리 주소지 수정(post)
+	public int addressManageUpdate2(AddressVO addressVO);
+	
+	//주소지 관리 주소지 추가(post)
+	public int addressManageAdd2(AddressVO addressVO);
+	
+	//주소지 관리 주소지 삭제(get)
+	public int addressManageDelete1(int address_no);
 
 
 }

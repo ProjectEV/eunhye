@@ -31,8 +31,11 @@
 </style>
 </head>
 <body>
-
-<h2 style="text-align: center;">마이페이지</h2>
+	
+	<div>
+		<h2 style="text-align: center;">마이페이지</h2>
+		<button id="nav-btn" onclick="location.href='/product/address_manage'">주소지 관리</button>
+	</div>
 
 	<div style="">
 		<div style="margin: 0 auto; width: 700px;">
@@ -46,15 +49,13 @@
 						  	
 										  	<div>
 										  		<img style="width: 50px; height: 50px;" src="${pageContext.request.contextPath}/resources/images/notebook2.jpg" alt="마이페이지 제품 사진">
-											    <p>${buydetailProduct.product_name}</p>
-											    <p>${buydetailProduct.product_price}</p>
- 												<p>${buydetail.buydetail_amount}</p>
+											    <span>${buydetailProduct.product_name}</span>
+											    <span>${buydetailProduct.product_price}</span>
+ 												<span>${buydetail.buydetail_amount}개</span>
 										  	</div>
 										  	
 			  							 </c:if>					  	
-							  	
 		  						  </c:forEach>
-							  	
 						  	</c:if>					  	
 					  </c:forEach>
 			 	</div>
