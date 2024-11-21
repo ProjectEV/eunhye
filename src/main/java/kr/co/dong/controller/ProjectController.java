@@ -33,8 +33,12 @@ public class ProjectController {
 		List<ProductVO> list = projectService.productSearch(keyword);
 		model.addAttribute("list", list);
 		
-		return "product";
+		return "product_list";
 	}
+	
+	
+	
+	
 	
 	//제품 상세페이지
 	@RequestMapping(value="product/detail", method=RequestMethod.GET)
@@ -44,7 +48,7 @@ public class ProjectController {
 		
 		//상품평
 		
-		return "product_detail";
+		return "product_detail2";
 	}
 	
 	//마이페이지
