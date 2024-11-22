@@ -49,7 +49,7 @@ public class ProjectController {
 		
 		//상품평
 		
-		return "product_detail2";
+		return "product_detail";
 	}
 	
 	//마이페이지
@@ -88,7 +88,7 @@ public class ProjectController {
 		List<ProductVO> productVO = projectService.mypageDetailProduct(productno);
 		model.addAttribute("buy_detail_product_list", productVO);
 
-		return "mypage2";
+		return "mypage";
 	}
 
 	//주소지 관리 - 조회(get)
