@@ -71,16 +71,16 @@
   
   
   <script type="text/javascript">
-  //검색 함수
-	function searchF(event) {
-		event.preventDefault();
-
-		const keyword = document.getElementById('keyword').value;
-		const searchLink = document.getElementById('searchA');
-		searchLink.href = "/product/list?keyword="+keyword;
-
-		window.location.href = searchLink.href;
-	}
+	    //검색 함수
+		function searchF(event) {
+			event.preventDefault();
+	
+			const keyword = document.getElementById('keyword').value;
+			const searchLink = document.getElementById('searchA');
+			searchLink.href = "/product/list?keyword="+keyword;
+	
+			window.location.href = searchLink.href;
+		}
   </script>
   
 </body>

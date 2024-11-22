@@ -1,6 +1,7 @@
 package kr.co.dong.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -55,7 +56,8 @@ public class ProjectController {
 	@RequestMapping(value="product/mypage", method=RequestMethod.GET)
 	public String ProductMypage(Model model, HttpSession session) {
 		//아이디 가져오기
-//		String userid = session.getId();
+//		Map<String, Object> user = (Map)session.getAttribute("user");
+//        String userid = (String)user.get("user_id");
 		String userid = "yoonho";
 		
 		//결제건 데이터 가져오기
@@ -86,7 +88,7 @@ public class ProjectController {
 		List<ProductVO> productVO = projectService.mypageDetailProduct(productno);
 		model.addAttribute("buy_detail_product_list", productVO);
 
-		return "mypage";
+		return "mypage2";
 	}
 
 	//주소지 관리 - 조회(get)
