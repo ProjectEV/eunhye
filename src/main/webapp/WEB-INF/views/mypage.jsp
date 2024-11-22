@@ -17,10 +17,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="breadcrumb__links">
+                    <div class="breadcrumb__links" style="">
                         <a href="./index.html"><i class="fa fa-home"></i>Home</a>
                         <a href="./index.html">마이페이지</a>
-                        <span>주문목록</span>
+                        <span style="">주문목록</span>
+                        <span style="width: 750px"></span>
+                        <button type="submit" class="site-btn" onclick="windowOpen()">주소지 관리</button>
                     </div>
                 </div>
             </div>
@@ -63,7 +65,7 @@
 					                                    </td>
 					                                    <td class="cart__price">${buydetailProduct.product_price}</td>
 					                                    <td class="cart__quantity">${buydetail.buydetail_amount}개</td>
-					                                    <td class="cart__total">$ 300.0</td>
+					                                    <td class="cart__total">합계</td>
 					                                    <td class="cart__close"><span class="icon_close">구매취소</span></td>
 					                                </tr>
 					                             </tbody>
@@ -140,6 +142,13 @@
     <!-- Instagram End -->
 
 <%@ include file="footer.jsp" %>
+
+<script>
+	function windowOpen() { 
+		var url = "/product/address_manage"
+		window.open(url, "a", "width=1000, height=800, left=100, top=50"); 
+	}
+</script>
 
 
 </body>

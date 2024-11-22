@@ -120,7 +120,6 @@ function input_plus(){
 			
 		</div>
 	</div>
-
 </form>
 
 

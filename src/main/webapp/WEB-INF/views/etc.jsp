@@ -149,7 +149,7 @@
                                     <p>Support.photography@gmail.com</p>
                                 </li>
                             </ul>
-                        </div>
+                        </div>  
                         <div class="contact__form">
                             <h5>SEND MESSAGE</h5>
                             <form action="#">

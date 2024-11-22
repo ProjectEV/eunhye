@@ -102,7 +102,7 @@ public class ProjectController {
 		List<AddressVO> addressList = projectService.addressManageSelect1(userid);
 		model.addAttribute("list", addressList);
 		
-		return "address_manage";
+		return "address_manage2";
 	}
 	
 	//주소지 관리 - 조회(post, 저장버튼)
@@ -118,7 +118,7 @@ public class ProjectController {
 		AddressVO addressVO = projectService.addressManageUpdate1(address_no);
 		model.addAttribute("address", addressVO);
 		
-		return "address_update";
+		return "address_update2";
 	}
 	
 	//주소지 관리 - 수정(post)
@@ -133,7 +133,7 @@ public class ProjectController {
 	//주소지 관리 - 추가(get)
 	@RequestMapping(value="product/address_manage/add", method=RequestMethod.GET)
 	public String address_manage_update() {
-		return "address_add";
+		return "address_add2";
 	}
 	
 	//주소지 관리 - 추가(post)
