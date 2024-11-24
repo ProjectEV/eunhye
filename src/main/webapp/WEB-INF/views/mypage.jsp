@@ -65,8 +65,8 @@
 					                                    </td>
 					                                    <td class="cart__price">${buydetailProduct.product_price}</td>
 					                                    <td class="cart__quantity">${buydetail.buydetail_amount}개</td>
-					                                    <td class="cart__total">합계</td>
-					                                    <td class="cart__close"><span class="icon_close">구매취소</span></td>
+					                                    <td class="cart__total" style="text-align: center;"> 합계 <br> ${buydetailProduct.product_price * buydetail.buydetail_amount}</td>
+					                                    <td class="cart__close"><span class="icon_close">취소</span></td>
 					                                </tr>
 					                             </tbody>
 				  							 </c:if>					  	

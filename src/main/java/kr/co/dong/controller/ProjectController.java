@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +23,8 @@ import kr.co.dong.project.ProjectService;
 
 @Controller
 public class ProjectController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(ProjectController.class);
 	
 	@Inject
 	ProjectService projectService;
@@ -102,7 +106,7 @@ public class ProjectController {
 		List<AddressVO> addressList = projectService.addressManageSelect1(userid);
 		model.addAttribute("list", addressList);
 		
-		return "address_manage2";
+		return "address_manage";
 	}
 	
 	//주소지 관리 - 조회(post, 저장버튼)
@@ -118,12 +122,14 @@ public class ProjectController {
 		AddressVO addressVO = projectService.addressManageUpdate1(address_no);
 		model.addAttribute("address", addressVO);
 		
-		return "address_update2";
+		return "address_update";
 	}
 	
 	//주소지 관리 - 수정(post)
 	@RequestMapping(value="product/address_manage/update", method=RequestMethod.POST)
 	public String address_manage_update(AddressVO addressVO, Model model) {
+        logger.info("-------------------------------{}",addressVO.getAddress_no());
+		
 		//주소지 리스트 수정 update
 		int result = projectService.addressManageUpdate2(addressVO);
 		
@@ -133,7 +139,7 @@ public class ProjectController {
 	//주소지 관리 - 추가(get)
 	@RequestMapping(value="product/address_manage/add", method=RequestMethod.GET)
 	public String address_manage_update() {
-		return "address_add2";
+		return "address_add";
 	}
 	
 	//주소지 관리 - 추가(post)

@@ -18,7 +18,7 @@
    <select id="productSearch" parameterType="java.lang.String" resultType="ProductVO">
 	  select *
 	  from product
-	  where product_name like concat('%',#{keyword},'%')
+	  where product_name like concat('%',#{keyword},'%') and product_del = 0
 	  order by product_id desc
   </select>
   
@@ -73,8 +73,8 @@
     <!-- 주소지 수정(post) -->
    <update id="addressManageUpdate2" parameterType="AddressVO">
 	  update address
-	  set address_main=0, address_name=#{address_name}, address_content=#{address_content}
-	  where address_no = #{address_no}
+	  set address_name=#{address_name}, address_content=#{address_content}
+	  where address_no=#{address_no}
    </update>
    
    <!-- 주소지 추가(post) -->

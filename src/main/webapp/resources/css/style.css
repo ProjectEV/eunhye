@@ -2099,7 +2099,7 @@ ol {
 }
 
 .shop__cart__table tbody tr td {
-	padding: 30px 0;
+	padding: 10px 0;
 }
 
 .shop__cart__table tbody tr .cart__product__item {
@@ -2132,11 +2132,11 @@ ol {
 	font-size: 16px;
 	color: #ca1515;
 	font-weight: 600;
-	width: 190px;
+	width: 150px;
 }
 
 .shop__cart__table tbody tr .cart__quantity {
-	width: 190px;
+	width: 120px;
 }
 
 .shop__cart__table tbody tr .cart__quantity .pro-qty {
@@ -2159,11 +2159,11 @@ ol {
 	font-size: 16px;
 	color: #ca1515;
 	font-weight: 600;
-	width: 150px;
+	width: 50px;
 }
 
 .shop__cart__table tbody tr .cart__close {
-	text-align: right;
+	text-align: center;
 }
 
 .shop__cart__table tbody tr .cart__close span {
