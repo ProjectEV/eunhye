@@ -33,13 +33,38 @@
 					<h4 style="text-align: center; font-weight: bold;">배송지 추가</h4>
 				</div>				
 				<form method="post" action="${pageContext.request.contextPath}/product/address_manage/add">
-	               <input type="text" name="address_name" placeholder="배송지 별칭">
+				
+<!--                  <div style="border-top: 1px solid white; margin: 0 0 10px 5px;" class="product__details__widget">-->
+<!--                      <ul>-->
+<!--                          <li>-->
+<!--                              <div class="stock__checkbox">-->
+<!--                                  <label for="stockin">-->
+<!--                                      기본배송지-->
+<!--                                      <input type="checkbox" id="stockin">-->
+<!--	                                      	<span class="checkmark" id="checkmark"></span>-->
+<!--                                  </label>-->
+<!--                              </div>-->
+<!--                          </li>-->
+<!--                       </ul>-->
+<!--                   </div>-->
+
+		            <!-- 
+		            <input type="hidden" id="address_main" name="address_main" value="0">
+		             -->
+	
+					<div style="margin: 5px 10px 5px 10px;"> 
+						<input style="display: inline; width: 15px; height: 15px;" type="checkbox" id="address_main" name="address_main" value="0">
+						<label style="display: inline;" for="address_main">기본배송지</label>
+					</div>
+
+
+	                <input type="text" name="address_name" placeholder="배송지 별칭">
 		            <input style="width: 135px; padding-left: 0px; text-align: center;" id="address" type="button" value="우편번호 검색"><br>
 		            <input id="zipcode" size="10" readonly placeholder="우편번호" >
 		            <input id="address1" type="text" readonly placeholder="도로명 주소"/>
 		            <input id="address2" type="text" placeholder="상세주소 입력"/>
+		             
 		            <input type="hidden" id="address_content" name="address_content">
-		            
 		            
 		            <div style="margin: 60px 0 0 0; text-align: center;">
 	                	<button type="submit" onclick="input_plus();" style=" padding: 15px 50px; font-size: 12px;" class="site-btn" id="nav-btn">저장</button>
@@ -108,11 +133,37 @@
 		var address1 = document.getElementById("address1").value;
 	    var address2 = document.getElementById("address2").value;
 	    
-	    var address = "(" + zipcode + ") " + address1 + " " + address2;
-	    
-	    alert(address);
-	    
+	    var address = "(" + zipcode + ") " + address1 + " (" + address2 + ")";
+	    	    
 	    document.getElementById("address_content").value = address;
+    	alert("1");
+	    
+	    var checkbox = document.getElementById('address_main');
+	    var is_checked = checkbox.checked;
+    	alert(is_checked);
+    	alert("2");
+	    
+	    if (is_checked == true) {
+	    	document.getElementById("address_main").value = 1;
+	    	alert("메인");
+	    } else {
+	    	document.getElementById("address_main").value = 0;
+	    	alert("기본");
+	    }
+    	alert("3");
+	    
+<!--   	    const checkbox = document.getElementById("stockin");-->
+
+<!--   	    checkbox.addEventListener("change", function () {-->
+<!--   	        if (checkbox.checked) {-->
+<!--   	    	    document.getElementById("address_main").value = 1;-->
+<!--   	    	    alert("메인");-->
+<!--   	        } else {-->
+<!--   	    	    document.getElementById("address_main").value = 0;-->
+<!--   	    	    alert("기본");-->
+<!--   	        }-->
+<!--   	    });-->
+   
 	}
 	</script>
 

@@ -4,6 +4,12 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="kr.co.dong.projectMapper">
   
+   <insert id="productRegister" parameterType="ProductVO">
+	insert into 
+	product (product_id, product_name, product_price, product_content, product_category, product_remain, product_sales)
+	values (#{product_id}, #{product_name}, #{product_price}, #{product_content}, #{product_category}, #{product_remain}, 0)
+ 	</insert>
+  
   <select id="totalRecord" resultType="java.lang.Integer">
 		select count(*) from inventory
   </select>
@@ -18,7 +24,7 @@
    <select id="productSearch" parameterType="java.lang.String" resultType="ProductVO">
 	  select *
 	  from product
-	  where product_name like concat('%',#{keyword},'%') and product_del = 0
+	  where product_name like concat('%',#{keyword},'%') and del = 0
 	  order by product_id desc
   </select>
   
@@ -70,23 +76,30 @@
 	  where address_no = #{address_no}
    </select>
    
-    <!-- 주소지 수정(post) -->
+   <!-- 주소지 수정(post) -->
    <update id="addressManageUpdate2" parameterType="AddressVO">
 	  update address
-	  set address_name=#{address_name}, address_content=#{address_content}
+	  set address_name=#{address_name}, address_content=#{address_content}, address_main=#{address_main}
 	  where address_no=#{address_no}
    </update>
    
    <!-- 주소지 추가(post) -->
    <insert id="addressManageAdd2" parameterType="AddressVO">
    		insert into address(address_userid, address_main, address_name, address_content)
-		values (#{address_userid}, 0, #{address_name}, #{address_content})
+		values (#{address_userid}, #{address_main}, #{address_name}, #{address_content});
    </insert>
+   
+   <!-- 메인 주소 초기화 -->
+   <update id="addressManageMainReset">
+		update address
+		set address_main=0
+		where address_main=1;
+   </update>
    
    <!-- 주소지 삭제(get) -->
    <delete id="addressManageDelete1" parameterType="java.lang.Integer">
    	  delete from address
 	  where address_no = #{address_no}
    </delete>
-  
+
   </mapper>

@@ -41,6 +41,11 @@
 	        <ul>
 	        	<c:forEach var="address" items="${list}">
 		            <li style="margin: 40px 0;">
+		            	<c:if test="${address.address_main == 1}">
+		            		<div style="display: inline; ">
+		            			<h6 style="display: inline; color: #ca1515; font-size: 12px; font-weight: bold;">*기본배송지</h6>
+ 			 			    </div>
+	      			 	</c:if>
 		                <h6 style="display: inline; margin: 0 5px 0 0;"><i class="fa fa-map-marker"></i>${address.address_name}</h6>
 		                <button style="padding: 5px 10px; font-size: 11px; margin: 0 2px 5px 0;" class="site-btn" id="nav-btn" onclick="location.href='/product/address_manage/update?address_no=${address.address_no}'">수정</button>
 					    <button style="padding: 5px 10px; font-size: 11px; margin: 0 2px 5px 0;" class="site-btn" id="nav-btn" onclick="location.href='/product/address_manage/delete?address_no=${address.address_no}'">삭제</button><br>

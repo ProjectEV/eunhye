@@ -87,4 +87,16 @@ public class ProjectDAOImpl implements ProjectDAO {
 		return sqlSession.delete(nameSpace + ".addressManageDelete1", address_no);
 	}
 
+	@Override
+	public int addressManageMainReset() {
+		// TODO Auto-generated method stub
+		return sqlSession.update(nameSpace + ".addressManageMainReset");
+	}
+	
+	@Override
+	public int productRegister(ProductVO productVO) {
+		// TODO Auto-generated method stub
+		return sqlSession.insert(nameSpace + ".productRegister", productVO);
+	}
+
 }

@@ -37,6 +37,12 @@ public interface ProjectDAO {
 	
 	//주소지 관리 주소지 삭제(get)
 	public int addressManageDelete1(int address_no);
+	
+	//메인 주소 리셋
+	public int addressManageMainReset();
+	
+	public int productRegister(ProductVO productVO);
+
 
 
 }

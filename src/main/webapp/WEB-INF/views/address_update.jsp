@@ -33,16 +33,39 @@
 				<div style="margin: 0 0 60px 0">
 					<h4 style="text-align: center; font-weight: bold;">배송지 수정</h4>
 				</div>				
-				<form method="post" action="${pageContext.request.contextPath}/product/address_manage/add">
+				<form method="post" action="${pageContext.request.contextPath}/product/address_manage/update">
 	                <input type="hidden" id="address_no" value="${address.address_no}" name="address_no">
+	                
+<!--                  <div style="border-top: 1px solid white; margin: 0 0 10px 5px;" class="product__details__widget">-->
+<!--                      <ul>-->
+<!--                          <li>-->
+<!--                              <div class="stock__checkbox">-->
+<!--                                  <label for="stockin">-->
+<!--                                      기본배송지-->
+<!--                                      <input type="checkbox" id="stockin">-->
+<!--	                                      	<span class="checkmark" id="checkmark"></span>-->
+<!--                                  </label>-->
+<!--                              </div>-->
+<!--                          </li>-->
+<!--                       </ul>-->
+<!--                   </div>-->
+
+		            <!-- 
+		            <input type="hidden" id="address_main" name="address_main" value="0">
+		             -->
+	
+					<div style="margin: 5px 10px 5px 10px;"> 
+						<input style="display: inline; width: 15px; height: 15px;" type="checkbox" id="address_main" name="address_main" value="0">
+						<label style="display: inline;" for="address_main">기본배송지</label>
+					</div>
 	                
 	                <input type="text" name="address_name" value="${address.address_name}" placeholder="배송지 별칭">
 		            <input style="width: 135px; padding-left: 0px; text-align: center;" id="address" type="button" value="우편번호 검색"><br>
 		            <input id="zipcode" size="10" readonly placeholder="우편번호" >
 		            <input id="address1" type="text" readonly placeholder="도로명 주소"/>
 		            <input id="address2" type="text" placeholder="상세주소 입력"/>
-		            <input type="hidden" id="address_content" name="address_content">
 		            
+     		        <input type="hidden" id="address_content" name="address_content">
         		    <input type="hidden" id="address_content_pre" value="${address.address_content}">
 		            
 		            <div style="margin: 60px 0 0 0; text-align: center;">
@@ -114,50 +137,65 @@
 		var address1 = document.getElementById("address1").value;
 	    var address2 = document.getElementById("address2").value;
 	    
-	    var address = "(" + zipcode + ") " + address1 + " " + address2;
-	    
-	    alert(address);
-	    
+	    var address = "(" + zipcode + ") " + address1 + " (" + address2 + ")";
+	    	    
 	    document.getElementById("address_content").value = address;
+    	alert("1");
+	    
+	    var checkbox = document.getElementById('address_main');
+	    var is_checked = checkbox.checked;
+    	alert(is_checked);
+    	alert("2");
+	    
+	    if (is_checked == true) {
+	    	document.getElementById("address_main").value = 1;
+	    	alert("메인");
+	    } else {
+	    	document.getElementById("address_main").value = 0;
+	    	alert("기본");
+	    }
+    	alert("3");
+	    
+<!--   	    const checkbox = document.getElementById("stockin");-->
+
+<!--   	    checkbox.addEventListener("change", function () {-->
+<!--   	        if (checkbox.checked) {-->
+<!--   	    	    document.getElementById("address_main").value = 1;-->
+<!--   	    	    alert("메인");-->
+<!--   	        } else {-->
+<!--   	    	    document.getElementById("address_main").value = 0;-->
+<!--   	    	    alert("기본");-->
+<!--   	        }-->
+<!--   	    });-->
+   
 	}
 	
 	
 	function parseAddress() {
-		var address_content_pre = document.getElementById("address_content_pre").value;
-		var address_no = document.getElementById("address_no").value;
-		alert(address_no);
-		alert(address_content_pre);
-		alert("조회");
-		
+	    const address_content_pre = document.getElementById("address_content_pre").value;
+
 	    // 우편번호 추출 (괄호로 감싸진 숫자)
-	    const postalCode = address_content_pre.match(/\(\d+\)/)?.[0].replace(/[()]/g, '');
-	    alert(postalCode);
-	    
-	    // 도로명주소 추출 (괄호가 있을 수도, 없을 수도 있음)
-	    let roadAddress = '';
-	    let detailedAddress = '';
+	    const postalCodeMatch = address_content_pre.match(/\(\d+\)/);
+	    const postalCode = postalCodeMatch ? postalCodeMatch[0].replace(/[()]/g, '') : null;
 
-	    if (address_content_pre.includes(')')) {
-	        // 괄호 있는 경우: 우편번호 이후와 상세주소 앞의 중간 영역
-	        const roadMatch = address_content_pre.match(/\d+\)\s(.+?)\s\(.+?\)/);
-	        const detailedMatch = address_content_pre.match(/\)\s(.+?)$/);
-	        roadAddress = roadMatch ? roadMatch[1].trim() : ''; // 도로명주소
-	        detailedAddress = detailedMatch ? detailedMatch[1].trim() : ''; // 상세주소
-	    } else {
-	        // 괄호 없는 경우: 우편번호 이후와 마지막 단어로 나눔
-	        const roadMatch = address_content_pre.match(/\d+\)\s(.+)\s[\w가-힣]+\s*$/);
-	        roadAddress = roadMatch ? roadMatch[1].trim() : ''; // 도로명주소
-	        detailedAddress = address_content_pre.split(" ").pop().trim(); // 마지막 단어
-	    }
-	    
-	    alert(roadAddress);
-	    alert(detailedAddress);
-	    
-	    document.getElementById("zipcode").value = postalCode;
-	    document.getElementById("address1").value = roadAddress;
-	    document.getElementById("address2").value = detailedAddress;
+	    // 우편번호 제거한 주소
+	    let addressWithoutPostalCode = address_content_pre.replace(/\(\d+\)/, '').trim();
 
+	    // 상세주소 추출 (마지막 괄호 안의 텍스트)
+	    const detailedAddressMatch = addressWithoutPostalCode.match(/\(([^()]+)\)$/);
+	    const detailedAddress = detailedAddressMatch ? detailedAddressMatch[1].trim() : '';
+
+	    // 도로명주소 추출 (마지막 괄호를 제외한 나머지 부분)
+	    addressWithoutPostalCode = addressWithoutPostalCode.replace(/\(([^()]+)\)$/, '').trim();
+	    const roadAddress = addressWithoutPostalCode;
+
+	    // 결과 반영
+	    document.getElementById("zipcode").value = postalCode || '';
+	    document.getElementById("address1").value = roadAddress || '';
+	    document.getElementById("address2").value = detailedAddress || '';
 	}
+
+
 	</script>
 
     

@@ -85,4 +85,16 @@ public class ProjectServiceImpl implements ProjectService {
 		return projectDAO.addressManageDelete1(address_no);
 	}
 
+	@Override
+	public int addressManageMainReset() {
+		// TODO Auto-generated method stub
+		return projectDAO.addressManageMainReset();
+	}
+	
+	@Override
+	public int productRegister(ProductVO productVO) {
+		// TODO Auto-generated method stub
+		return projectDAO.productRegister(productVO);
+	}
+
 }

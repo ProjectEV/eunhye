@@ -1,7 +1,6 @@
 package kr.co.dong.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.dong.project.AddressVO;
 import kr.co.dong.project.BuyDetailVO;
@@ -29,6 +29,32 @@ public class ProjectController {
 	@Inject
 	ProjectService projectService;
 	
+	@RequestMapping(value="project/product_register", method= RequestMethod.GET)
+	public String productRegister() {
+		logger.info("관리자 글 작성 이동");
+		return "admin_post2";
+	}
+	
+	
+	// 신규 product 등록
+	@RequestMapping(value="project/product_register", method= RequestMethod.POST) 
+	public String productRegister(ProductVO productVO, HttpServletRequest request, RedirectAttributes rttr) throws Exception {
+		request.setCharacterEncoding("UTF-8");
+		logger.info("내용" + productVO);
+
+		int r = projectService.productRegister(productVO);
+		
+		if(r>0) {
+			rttr.addFlashAttribute("msg","추가에 성공하였습니다.");	//세션저장
+			}
+		return "redirect:inventory";
+	}
+	
+	
+	
+	
+	
+	
 	//제품 목록 검색
 	@RequestMapping(value="product/list", method=RequestMethod.GET)
 	public String ProductSearch(@RequestParam("keyword") String keyword, HttpServletRequest request, Model model) throws Exception{
@@ -40,10 +66,6 @@ public class ProjectController {
 		
 		return "product_list";
 	}
-	
-	
-	
-	
 	
 	//제품 상세페이지
 	@RequestMapping(value="product/detail", method=RequestMethod.GET)
@@ -128,7 +150,11 @@ public class ProjectController {
 	//주소지 관리 - 수정(post)
 	@RequestMapping(value="product/address_manage/update", method=RequestMethod.POST)
 	public String address_manage_update(AddressVO addressVO, Model model) {
-        logger.info("-------------------------------{}",addressVO.getAddress_no());
+		//메인주소 리셋
+		int address_main = addressVO.getAddress_main();
+		if(address_main == 1) { //들어오는 데이터가 메인 주소라면
+			int result = projectService.addressManageMainReset();
+		}		
 		
 		//주소지 리스트 수정 update
 		int result = projectService.addressManageUpdate2(addressVO);
@@ -150,6 +176,12 @@ public class ProjectController {
 		String userid = "yoonho";
 		
 		addressVO.setAddress_userid(userid);
+		
+		//메인주소 리셋
+		int address_main = addressVO.getAddress_main();
+		if(address_main == 1) { //들어오는 데이터가 메인 주소라면
+			int result = projectService.addressManageMainReset();
+		}
 		
 		//주소지 리스트 추가
 		int result = projectService.addressManageAdd2(addressVO);
