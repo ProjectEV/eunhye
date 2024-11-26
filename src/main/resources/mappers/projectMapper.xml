@@ -4,20 +4,42 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="kr.co.dong.projectMapper">
   
-   <insert id="productRegister" parameterType="ProductVO">
+  <insert id="productRegister" parameterType="ProductVO">
 	insert into 
 	product (product_id, product_name, product_price, product_content, product_category, product_remain, product_sales)
 	values (#{product_id}, #{product_name}, #{product_price}, #{product_content}, #{product_category}, #{product_remain}, 0)
- 	</insert>
+  </insert>
   
-  <select id="totalRecord" resultType="java.lang.Integer">
-		select count(*) from inventory
+  <!-- 파일 업로드 -->
+  <insert id="fileUpload" parameterType="FileVO">
+	insert into 
+	file (file_name, file_path, file_connection_id)
+	values (#{file_name}, #{file_path}, #{file_connection_id})
+  </insert>
+  
+  <!-- 파일 조회 -->
+  <select id="fileSelect" parameterType="java.lang.String" resultType="java.lang.String">
+	  select file_name
+	  from file
+	  where file_connection_id=#{product_id}
   </select>
   
-  <select id="findAll" resultType="InventoryVO">
-	  SELECT *
-      FROM inventory
-      order by inventory_product_id desc
+  <!-- 제품 목록에서 대표 이미지 조회 -->
+  <select id="listFileSelect" parameterType="java.lang.String" resultType="FileVO">
+	  	WITH ranked_files AS (
+		    SELECT 
+		        file_name, 
+		        file_connection_id, 
+		        ROW_NUMBER() OVER (PARTITION BY file_connection_id ORDER BY file_name) AS rnk
+		    FROM file
+		    WHERE file_connection_id IN 	    
+		    <foreach collection="array" item="productno" open="(" separator="," close=")">
+	        	#{productno}
+	    	</foreach>
+		)
+		SELECT *
+		FROM ranked_files
+		WHERE rnk = 1;
   </select>
   
    <!-- 검색 -->

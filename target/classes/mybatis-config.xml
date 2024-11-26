@@ -11,5 +11,6 @@
  		<typeAlias alias="BuyVO" type="kr.co.dong.project.BuyVO"/>
  		<typeAlias alias="BuyDetailVO" type="kr.co.dong.project.BuyDetailVO"/>
  		<typeAlias alias="AddressVO" type="kr.co.dong.project.AddressVO"/>
+ 		<typeAlias alias="FileVO" type="kr.co.dong.project.FileVO"/>
  	</typeAliases>
  </configuration>

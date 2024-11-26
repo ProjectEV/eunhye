@@ -99,4 +99,22 @@ public class ProjectDAOImpl implements ProjectDAO {
 		return sqlSession.insert(nameSpace + ".productRegister", productVO);
 	}
 
+	@Override
+	public int fileUpload(FileVO fileVO) {
+		// TODO Auto-generated method stub
+		return sqlSession.insert(nameSpace + ".fileUpload", fileVO);
+	}
+
+	@Override
+	public List<String> fileSelect(String product_id) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(nameSpace + ".fileSelect", product_id);
+	}
+
+	@Override
+	public List<FileVO> listFileSelect(String[] productno) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(nameSpace + ".listFileSelect", productno);
+	}
+
 }

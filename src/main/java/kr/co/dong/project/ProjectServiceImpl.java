@@ -1,10 +1,14 @@
 package kr.co.dong.project;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class ProjectServiceImpl implements ProjectService {
@@ -95,6 +99,24 @@ public class ProjectServiceImpl implements ProjectService {
 	public int productRegister(ProductVO productVO) {
 		// TODO Auto-generated method stub
 		return projectDAO.productRegister(productVO);
+	}
+
+	@Override
+	public int fileUpload(FileVO fileVO) {
+		// TODO Auto-generated method stub
+		return projectDAO.fileUpload(fileVO);
+	}
+
+	@Override
+	public List<String> fileSelect(String product_id) {
+		// TODO Auto-generated method stub
+		return projectDAO.fileSelect(product_id);
+	}
+
+	@Override
+	public List<FileVO> listFileSelect(String[] productno) {
+		// TODO Auto-generated method stub
+		return projectDAO.listFileSelect(productno);
 	}
 
 }

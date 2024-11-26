@@ -6,6 +6,36 @@
 <meta charset="UTF-8">
 <title>TechNova</title>
 <head>
+
+
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <script>
+        $(document).ready(function () {
+            // 수량 변경 이벤트 핸들러
+            $(".quantity-input").on("input", function () {
+                const quantity = $(this).val(); // 입력된 수량
+                
+                const remain = $(".remain").data("product-remain");
+                
+
+                if (quantity < 0 || isNaN(quantity)) {
+                    alert("수량은 0 이상의 숫자만 가능합니다.");
+                    $(this).val(0); // 잘못된 입력은 0으로 리셋
+                    return;
+                }
+                if (quantity > remain) {
+                    alert("재고가 부족합니다.");
+                    $(this).val(remain);
+                    return;
+                }
+             
+            });
+
+            
+        });
+    </script>
+
+
 </head>
 
 <body>
@@ -34,29 +64,30 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="product__details__pic">
-                    
-                    
                         <div class="product__details__pic__left product__thumb nice-scroll">
-                        	<c:forEach var="file_name" items="${file_name}" varStatus="status">
-                        		<a class="pt active" href="#product-${status.index + 1}">
-	                                <img src="${pageContext.request.contextPath}/images/${file_name}" alt="">
-	                            </a>
-                        	</c:forEach>
+                            <a class="pt active" href="#product-1">
+                                <img src="${pageContext.request.contextPath}/resources/images/notebook2.jpg" alt="">
+                            </a>
+                            <a class="pt" href="#product-2">
+                                <img src="${pageContext.request.contextPath}/resources/images/notebook2.jpg" alt="">
+                            </a>
+                            <a class="pt" href="#product-3">
+                                <img src="${pageContext.request.contextPath}/resources/images/notebook2.jpg" alt="">
+                            </a>
+                            <a class="pt" href="#product-4">
+                                <img src="${pageContext.request.contextPath}/resources/images/notebook2.jpg" alt="">
+                            </a>
                         </div>
-                        
-                        
                         <div class="product__details__slider__content">
                             <div class="product__details__pic__slider owl-carousel">
-	                            <c:forEach var="file_name" items="${file_name}" varStatus="status">
-                                	<img data-hash="product-${status.index + 1}" class="product__big__img" src="${pageContext.request.contextPath}/images/${file_name}" alt="">
-	                        	</c:forEach>
+                                <img data-hash="product-1" class="product__big__img" src="${pageContext.request.contextPath}/resources/images/notebook2.jpg" alt="">
+                                <img data-hash="product-2" class="product__big__img" src="${pageContext.request.contextPath}/resources/images/notebook2.jpg" alt="">
+                                <img data-hash="product-3" class="product__big__img" src="${pageContext.request.contextPath}/resources/images/notebook2.jpg" alt="">
+                                <img data-hash="product-4" class="product__big__img" src="${pageContext.request.contextPath}/resources/images/notebook2.jpg" alt="">
                             </div>
                         </div>
-                        
-                        
                     </div>
                 </div>
-                
                 <div class="col-lg-6">
                     <div class="product__details__text">
                         <h3>${product.product_name} <span>SAMSUNG</span></h3>
@@ -73,13 +104,17 @@
                         <div class="product__details__price">${product.product_price}<span>$ 83.0</span></div>
                         <p>${product.product_content}</p>
                         <div class="product__details__button">
-                            <div class="quantity">
-                                <span>수량 :</span>
-                                <div class="pro-qty">
-                                    <input type="text" value="1">
-                                </div>
-                            </div>
-                            <a href="/product/buy" class="cart-btn"><span class="icon_bag_alt"></span> 장바구니</a>
+                           <form action="/project/cart_register" method="get" id="cart">
+                               <div class="quantity">
+                                   <span>수량 :</span>
+                                   <div class="remain pro-qty" data-product-remain="${product.product_remain }">
+                                      <input type="hidden" name="product_id" value="${product.product_id}" />
+                                       <input type="number" class="quantity-input" name="amount" value="1">
+                                   </div>
+                               </div>
+                               
+                               <a href="javascript:;" onclick="document.getElementById('cart').submit();" class="cart-btn"><span class="icon_bag_alt"></span> 장바구니</a>
+                            </form>
                             <ul>
                                 <li><a href="#"><span class="icon_heart_alt"></span></a></li>
                                 <li><a href="#"><span class="icon_adjust-horiz"></span></a></li>
@@ -278,64 +313,9 @@
         </div>
     </section>
     <!-- Product Details Section End -->
-
-    <!-- Instagram Begin -->
-    <div class="instagram">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="${pageContext.request.contextPath}/resources/img/instagram/insta-1.jpg">
-                        <div class="instagram__text">
-                            <i class="fa fa-instagram"></i>
-                            <a href="#">@ ashion_shop</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="${pageContext.request.contextPath}/resources/img/instagram/insta-2.jpg">
-                        <div class="instagram__text">
-                            <i class="fa fa-instagram"></i>
-                            <a href="#">@ ashion_shop</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="${pageContext.request.contextPath}/resources/img/instagram/insta-3.jpg">
-                        <div class="instagram__text">
-                            <i class="fa fa-instagram"></i>
-                            <a href="#">@ ashion_shop</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="${pageContext.request.contextPath}/resources/img/instagram/insta-4.jpg">
-                        <div class="instagram__text">
-                            <i class="fa fa-instagram"></i>
-                            <a href="#">@ ashion_shop</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="${pageContext.request.contextPath}/resources/img/instagram/insta-5.jpg">
-                        <div class="instagram__text">
-                            <i class="fa fa-instagram"></i>
-                            <a href="#">@ ashion_shop</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="${pageContext.request.contextPath}/resources/img/instagram/insta-6.jpg">
-                        <div class="instagram__text">
-                            <i class="fa fa-instagram"></i>
-                            <a href="#">@ ashion_shop</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Instagram End -->
-
+<!-- 
+    <%@ include file="instagram.jsp" %>
+ -->
 <%@ include file="footer.jsp" %>
 
 </body>

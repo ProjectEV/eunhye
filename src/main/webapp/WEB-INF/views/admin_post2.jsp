@@ -218,13 +218,13 @@
                                         placeholder="Note about your order, e.g, special noe for delivery">
                                     </div>
                                     
-                                    <div class="checkout__form__input">
-                                        <p>파일 업로드 <span>*</span></p>
-								            <input type="text" name="name"><br>
-								            <input type="button" value="파일 추가" onClick="fn_addFile()"><br>
-								            <div id="d_file"></div>
-								            <input type="file" multiple="multiple">
-                                    </div>
+									<div class="checkout__form__input">
+										<p>파일 업로드 <span>*</span></p>
+										<!-- 
+										<input type="button" value="파일 추가" onClick="fn_addFile()"><br>
+										<div id="d_file"></div>  -->
+										<input type="file" multiple="multiple" name="files">
+									</div>
                                 </div>
                             </div>
                         </div>
@@ -245,7 +245,7 @@
                                         <li>04. Cotton shirt <span>$ 110.0</span></li>
                                          -->
                                         
-                                        
+                                        <!-- 
                                         <c:set var = "total" value = "0" />
                                         
                                         <c:forEach var="cart" items="${list }" varStatus="status">
@@ -254,7 +254,7 @@
                                         <c:set var= "total" value="${total + cart.product_price * cart.cart_amount}"/>
                                         
                                         </c:forEach>
-                                        
+                                        -->
                                         
                                     </ul>
                                 </div>

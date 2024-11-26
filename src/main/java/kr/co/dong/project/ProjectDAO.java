@@ -2,6 +2,8 @@ package kr.co.dong.project;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public interface ProjectDAO {
 
 	public int totalRecord1();
@@ -42,6 +44,15 @@ public interface ProjectDAO {
 	public int addressManageMainReset();
 	
 	public int productRegister(ProductVO productVO);
+	
+	//다중 이미지 저장
+	public int fileUpload(FileVO fileVO);
+	
+	//다중 이미지 조회
+	public List<String> fileSelect(String product_id);
+	
+	//제품 목록에서 대표 이미지 조회
+	public List<FileVO> listFileSelect(String[] productno);
 
 
 

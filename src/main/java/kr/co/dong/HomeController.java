@@ -33,7 +33,7 @@ public class HomeController {
 
 		model.addAttribute("serverTime", formattedDate );
 
-		return "admin_post2";
+		return "home";
 	}
 
 	@RequestMapping(value="/main")
