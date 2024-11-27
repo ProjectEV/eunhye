@@ -73,13 +73,18 @@
                         <div class="product__details__price">${product.product_price}<span>$ 83.0</span></div>
                         <p>${product.product_content}</p>
                         <div class="product__details__button">
-                            <div class="quantity">
-                                <span>수량 :</span>
-                                <div class="pro-qty">
-                                    <input type="text" value="1">
-                                </div>
-                            </div>
-                            <a href="/product/buy" class="cart-btn"><span class="icon_bag_alt"></span> 장바구니</a>
+                            <form action="/project/cart_register" method="get" id="cart">
+                               <div class="quantity">
+                                   <span>수량 :</span>
+                                   <div class="remain pro-qty" data-product-remain="${product.product_remain }">
+                                      <input type="hidden" name="product_id" value="${product.product_id}" />
+                                       <input type="number" class="quantity-input" name="amount" value="1">
+                                   </div>
+                               </div>
+                               
+                               <a href="javascript:;" onclick="document.getElementById('cart').submit();" class="cart-btn"><span class="icon_bag_alt"></span> 장바구니</a>
+                            </form>
+                            
                             <ul>
                                 <li><a href="#"><span class="icon_heart_alt"></span></a></li>
                                 <li><a href="#"><span class="icon_adjust-horiz"></span></a></li>

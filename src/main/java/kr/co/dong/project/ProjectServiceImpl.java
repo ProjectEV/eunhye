@@ -118,5 +118,17 @@ public class ProjectServiceImpl implements ProjectService {
 		// TODO Auto-generated method stub
 		return projectDAO.listFileSelect(productno);
 	}
+	
+	@Override
+	public int review(BoardsDTO boardsDTO) {
+		// TODO Auto-generated method stub
+		return projectDAO.review(boardsDTO);
+	}
+
+	@Override
+	public int boardsNoLast() {
+		// TODO Auto-generated method stub
+		return projectDAO.boardsNoLast();
+	}
 
 }

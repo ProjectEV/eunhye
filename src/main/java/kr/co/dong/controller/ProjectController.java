@@ -2,10 +2,12 @@ package kr.co.dong.controller;
 
 import java.io.File;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -21,6 +23,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.dong.project.AddressVO;
+import kr.co.dong.project.BoardsDTO;
 import kr.co.dong.project.BuyDetailVO;
 import kr.co.dong.project.BuyVO;
 import kr.co.dong.project.FileVO;
@@ -41,57 +44,8 @@ public class ProjectController {
 		return "admin_post2";
 	}
 	
-	
-	// 신규 product 등록
-//	@RequestMapping(value="project/product_register", method= RequestMethod.POST) 
-//	public String productRegister(ProductVO productVO, HttpServletRequest request, RedirectAttributes rttr) throws Exception {
-//		request.setCharacterEncoding("UTF-8");
-//		logger.info("내용" + productVO);
-//
-//		int r = projectService.productRegister(productVO);
-//		
-//		if(r>0) {
-//			rttr.addFlashAttribute("msg","추가에 성공하였습니다.");	//세션저장
-//			}
-//		return "redirect:inventory";
-//	}
-	
-	@RequestMapping(value="product/file", method= RequestMethod.POST) 
-	public String fileUpload(@RequestParam("file_connection_id") String file_connection_id,
-			@RequestParam("files") List<MultipartFile> files, 
-			HttpServletRequest request, RedirectAttributes rttr,
-			MultipartHttpServletRequest req, MultipartFile file2) throws Exception {
-		
-		String imagePath = "/C:\\uploads/";
-		
-		for (MultipartFile file : files) {
-			String uuid = UUID.randomUUID().toString();
-			String filename = uuid + "_" + file.getOriginalFilename();
-			
-			File dest = new File(imagePath + filename);
-			
-			file.transferTo(dest);
-			
-			FileVO fileVO = new FileVO();
-			fileVO.setFile_name(filename);
-			fileVO.setFile_path("/C:\\uploads/" + filename);
-			fileVO.setFile_connection_id(file_connection_id);
-			
-			projectService.fileUpload(fileVO);
-		}
-		return "redirect:/product/mypage";
-	}
-	
-	
 	@RequestMapping(value="project/product_register", method= RequestMethod.POST) 
-	public String productRegister(
-//			@RequestParam("product_id") String productId,
-//		    @RequestParam("product_name") String productName,
-//		    @RequestParam("product_price") Integer productPrice,
-//		    @RequestParam("product_category") Integer productCategory,
-//		    @RequestParam("product_remain") Integer productRemain,
-//		    @RequestParam("product_content") String productContent, 
-			ProductVO productVO,
+	public String productRegister(ProductVO productVO,
 		    @RequestParam("files") List<MultipartFile> files,     
 		    HttpServletRequest request, RedirectAttributes rttr) throws Exception {
 		
@@ -114,14 +68,6 @@ public class ProjectController {
 			projectService.fileUpload(fileVO);
 		}
 		
-//		ProductVO productVO = new ProductVO();
-//		productVO.setProduct_id(productId);
-//		productVO.setProduct_name(productName);
-//		productVO.setProduct_category(productCategory);
-//		productVO.setProduct_content(productContent);
-//		productVO.setProduct_price(productPrice);
-//		productVO.setProduct_remain(productRemain);		
-		
 		request.setCharacterEncoding("UTF-8");
 		logger.info("내용" + productVO);
 
@@ -131,6 +77,58 @@ public class ProjectController {
 			rttr.addFlashAttribute("msg","추가에 성공하였습니다.");	//세션저장
 			}
 		return "redirect:/";
+	}
+	
+	//리뷰작성 처리
+	@RequestMapping(value="product/review", method = RequestMethod.GET)
+	public String review(Model model, HttpSession session) {
+		logger.info("리뷰작성 화면");
+		//session에 담겨있는 아이디 값 리뷰 데이터로 넘겨주기 위한 처리
+//		Map r = (Map)session.getAttribute("user");
+//		String user_id =(String)r.get("user_id");
+		String user_id = "yoonho";
+
+		model.addAttribute("user_id",user_id);
+		
+		return "review";
+	}
+		
+	@RequestMapping(value="product/review", method = RequestMethod.POST)
+	public String review(BoardsDTO boardsDTO, 
+			@RequestParam("files") List<MultipartFile> files,
+			HttpServletRequest request,RedirectAttributes rttr, HttpSession session,
+		HttpServletResponse response) throws Exception {
+		request.setCharacterEncoding("UTF-8");
+		logger.info("리뷰내용"+ boardsDTO);
+		
+		//보드 테이블의 마지막 튜플 번호 조회
+		int boards_no_last = projectService.boardsNoLast();
+		
+		//다중 파일 저장
+		String imagePath = "/C:\\uploads/";
+		
+		for (MultipartFile file : files) {
+			String uuid = UUID.randomUUID().toString();
+			String filename = uuid + "_" + file.getOriginalFilename();
+			
+			File dest = new File(imagePath + filename);
+			file.transferTo(dest);
+			
+			FileVO fileVO = new FileVO();
+			fileVO.setFile_name(filename);
+			fileVO.setFile_path("/C:\\uploads/" + filename);
+			fileVO.setFile_connection_id(Integer.toString(boards_no_last + 1));
+			
+			projectService.fileUpload(fileVO);
+		}
+		
+		int r = projectService.review(boardsDTO);
+		
+		if(r>0) {
+			rttr.addFlashAttribute("msg","완료");
+		}
+		return "home";
+		
 	}
 	
 	

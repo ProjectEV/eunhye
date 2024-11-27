@@ -15,17 +15,19 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"
 	integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
 	crossorigin="anonymous"></script>
-<link rel="stylesheet"
-	href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-
-<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_APP_KEY&libraries=services"></script>
-<script type="text/javascript" src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
+	<link rel="stylesheet"
+		href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	
+	<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_APP_KEY&libraries=services"></script>
+	<script type="text/javascript" src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
     
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     
- 
-     
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
@@ -112,43 +114,40 @@
 
 </head>
 <body>
-
 					<div class="contact__form">
                             <h4>상품평 작성</h4><br><br>
-                            <form method="post" action="/product/review">
+                            <form method="post" action="/product/review" enctype="multipart/form-data">
                             
-                            <h5>
-                            <b>상품 만족도</b>
-                            </h5>
-                            	  <img src="placeholder-image.jpg" alt="상품 이미지" >
-                            	  <strong>이미지 상품명</strong>
-                            	  
-                            	  <br><br><br><br><br>
-                            
+                           	    <img src="placeholder-image.jpg" alt="상품 이미지" >
+                           	    <h5>상품이름</h5>
+                           	    
+                           	    <br><br><br>
+                                <p class="form-label">상품 만족도 <span>*</span></p>
                             	<div class="review-stars">
-         							<span class="star">&#9733;</span>
-         							<span class="star">&#9733;</span>
-  								    <span class="star">&#9733;</span>
-         							<span class="star">&#9733;</span>
-         							<span class="star">&#9733;</span>
-         							<input type="hidden" id="rating" name="rating" >
+                            		<div>
+	         							<span class="star">&#9733;</span>
+	         							<span class="star">&#9733;</span>
+	  								    <span class="star">&#9733;</span>
+	         							<span class="star">&#9733;</span>
+	         							<span class="star">&#9733;</span>
+	         							<input type="hidden" id="rating" name="rating" >
+         							</div>
       							</div>
                             		
                              	<p class="form-label">제목 <span>*</span></p>
                                 <input type="text" id="boards_title" name="boards_title" style="width: 400px;" required > <br>
                                  <p class="form-label">내용 <span>*</span></p>
                                 <textarea style=" width: 400px; height: 200px;" rows="70" cols="70" id="boards_content" name="boards_content" required ></textarea>
-                               <br><br>
-                                <div class="upload-section">
-         							<span>&#128247; 사진/동영상 첨부하기</span>
-						      	</div>
+                                <p class="form-label">사진 등록 <span></span></p>
+                                
+					      	    <div class="mb-3">
+								  <input style="height: 35px; padding-left: 12px;" class="form-control" type="file" id="formFile" multiple="multiple" name="files">
+								</div>
+								
 						      	<br><br>
-						      	 <input type="hidden" name="boards_userid" id="boards_userid" value="${user_id}" >
+						      	<input type="hidden" name="boards_userid" id="boards_userid" value="${user_id}" >
 								<button type="submit" class="site-btn">작성완료</button>
-			                    <button type="reset" class="site-btn">다시 작성</button>
-			                   
-			                  
-			                           
+			                    <button type="reset" class="site-btn">다시작성</button>
                             </form>
                         </div>
 

@@ -116,5 +116,18 @@ public class ProjectDAOImpl implements ProjectDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList(nameSpace + ".listFileSelect", productno);
 	}
+	
+	// 리뷰 작성 처리
+	@Override
+	public int review(BoardsDTO boardsDTO) {
+		// TODO Auto-generated method stub
+		return sqlSession.insert(nameSpace+".review",boardsDTO);
+	}
+
+	@Override
+	public int boardsNoLast() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(nameSpace + ".boardsNoLast");
+	}
 
 }

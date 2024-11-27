@@ -43,6 +43,9 @@ public interface ProjectService {
 	//메인 주소 리셋
 	public int addressManageMainReset();
 
+	
+	
+	//제품 등록
 	public int productRegister(ProductVO productVO);
 	
 	//다중 이미지 저장
@@ -53,6 +56,12 @@ public interface ProjectService {
 	
 	//제품 목록에서 대표 이미지 조회
 	public List<FileVO> listFileSelect(String[] productno);
+	
+	//리뷰작성 처리
+	public int review(BoardsDTO boardsDTO);
+	
+	//보드 테이블 마지막 튜플의 번호 조회
+	public int boardsNoLast();
 
 
 }
