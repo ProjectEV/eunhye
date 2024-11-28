@@ -160,11 +160,11 @@ public class ProjectController {
 	}
 	
 	
-	
-	
-	
-	
-	
+	//장바구니
+	@RequestMapping(value="project/cart", method=RequestMethod.GET)
+	public String cart() {
+		return "cart";
+	}
 	
 	//제품 상세페이지
 	@RequestMapping(value="product/detail", method=RequestMethod.GET)

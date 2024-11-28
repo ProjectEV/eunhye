@@ -165,13 +165,13 @@ ol {
 	font-weight: 600;
 	padding: 12px 30px 10px;
 	color: #ffffff;
-	background: #ca1515;
+	background: #000000;
 }
 
 .site-btn {
 	font-size: 14px;
 	color: #ffffff;
-	background: #ca1515;
+	background: #000000;
 	font-weight: 600;
 	border: none;
 	text-transform: uppercase;
@@ -388,7 +388,7 @@ ol {
 	font-size: 14px;
 	color: #ffffff;
 	font-weight: 400;
-	padding: 8px 20px;
+	padding: 8px 0;
 	text-transform: capitalize;
 }
 

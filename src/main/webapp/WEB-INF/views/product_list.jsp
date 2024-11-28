@@ -35,13 +35,13 @@
                     <div class="shop__sidebar">
                         <div class="sidebar__categories">
                             <div class="section-title">
-                                <h4>Categories</h4>
+                                <h4>카테고리</h4>
                             </div>
                             <div class="categories__accordion">
                                 <div class="accordion" id="accordionExample">
                                     <div class="card">
                                         <div class="card-heading active">
-                                            <a data-toggle="collapse" data-target="#collapseOne">Women</a>
+                                            <a data-toggle="collapse" data-target="#collapseOne">컴퓨터</a>
                                         </div>
                                         <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
                                             <div class="card-body">
@@ -58,7 +58,7 @@
                                     </div>
                                     <div class="card">
                                         <div class="card-heading">
-                                            <a data-toggle="collapse" data-target="#collapseTwo">Men</a>
+                                            <a data-toggle="collapse" data-target="#collapseTwo">노트북</a>
                                         </div>
                                         <div id="collapseTwo" class="collapse" data-parent="#accordionExample">
                                             <div class="card-body">
@@ -75,7 +75,7 @@
                                     </div>
                                     <div class="card">
                                         <div class="card-heading">
-                                            <a data-toggle="collapse" data-target="#collapseThree">Kids</a>
+                                            <a data-toggle="collapse" data-target="#collapseThree">핸드폰</a>
                                         </div>
                                         <div id="collapseThree" class="collapse" data-parent="#accordionExample">
                                             <div class="card-body">
@@ -92,7 +92,7 @@
                                     </div>
                                     <div class="card">
                                         <div class="card-heading">
-                                            <a data-toggle="collapse" data-target="#collapseFour">Accessories</a>
+                                            <a data-toggle="collapse" data-target="#collapseFour">컴퓨터부품</a>
                                         </div>
                                         <div id="collapseFour" class="collapse" data-parent="#accordionExample">
                                             <div class="card-body">
@@ -109,7 +109,7 @@
                                     </div>
                                     <div class="card">
                                         <div class="card-heading">
-                                            <a data-toggle="collapse" data-target="#collapseFive">Cosmetic</a>
+                                            <a data-toggle="collapse" data-target="#collapseFive">기타</a>
                                         </div>
                                         <div id="collapseFive" class="collapse" data-parent="#accordionExample">
                                             <div class="card-body">
@@ -127,6 +127,8 @@
                                 </div>
                             </div>
                         </div>
+                    
+                    <!-- 
                         <div class="sidebar__filter">
                             <div class="section-title">
                                 <h4>Shop by price</h4>
@@ -144,6 +146,10 @@
                             </div>
                             <a href="#">Filter</a>
                         </div>
+                        
+                         -->
+                         
+                         <!-- 
                         <div class="sidebar__sizes">
                             <div class="section-title">
                                 <h4>Shop by size</h4>
@@ -191,49 +197,28 @@
                                 </label>
                             </div>
                         </div>
+                        
+                         -->
+                         
+                         
                         <div class="sidebar__color">
                             <div class="section-title">
-                                <h4>Shop by size</h4>
+                                <h4>정렬</h4>
                             </div>
                             <div class="size__list color__list">
                                 <label for="black">
-                                    Blacks
-                                    <input type="checkbox" id="black">
+                                    가격낮은순 
+                                <input type="checkbox" id="black">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label for="whites">
-                                    Whites
+                                    가격높은순
                                     <input type="checkbox" id="whites">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label for="reds">
-                                    Reds
+                                    판매량순
                                     <input type="checkbox" id="reds">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="greys">
-                                    Greys
-                                    <input type="checkbox" id="greys">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="blues">
-                                    Blues
-                                    <input type="checkbox" id="blues">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="beige">
-                                    Beige Tones
-                                    <input type="checkbox" id="beige">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="greens">
-                                    Greens
-                                    <input type="checkbox" id="greens">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="yellows">
-                                    Yellows
-                                    <input type="checkbox" id="yellows">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
