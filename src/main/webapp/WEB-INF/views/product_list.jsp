@@ -46,12 +46,12 @@
                                         <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
                                             <div class="card-body">
                                                 <ul>
-                                                    <li><a href="#">Coats</a></li>
-                                                    <li><a href="#">Jackets</a></li>
-                                                    <li><a href="#">Dresses</a></li>
-                                                    <li><a href="#">Shirts</a></li>
-                                                    <li><a href="#">T-shirts</a></li>
-                                                    <li><a href="#">Jeans</a></li>
+                                                    <li><a href="#">전체</a></li>
+                                                    <li><a href="#">LG전자</a></li>
+                                                    <li><a href="#">삼성전자</a></li>
+                                                    <li><a href="#">ASUS</a></li>
+                                                    <li><a href="#">HP</a></li>
+                                                    <li><a href="#">한성컴퓨터</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -63,12 +63,12 @@
                                         <div id="collapseTwo" class="collapse" data-parent="#accordionExample">
                                             <div class="card-body">
                                                 <ul>
-                                                    <li><a href="#">Coats</a></li>
-                                                    <li><a href="#">Jackets</a></li>
-                                                    <li><a href="#">Dresses</a></li>
-                                                    <li><a href="#">Shirts</a></li>
-                                                    <li><a href="#">T-shirts</a></li>
-                                                    <li><a href="#">Jeans</a></li>
+                                                    <li><a href="#">전체</a></li>
+                                                    <li><a href="#">Apple</a></li>
+                                                    <li><a href="#">LG전자</a></li>
+                                                    <li><a href="#">삼성전자</a></li>
+                                                    <li><a href="#">레노버</a></li>
+                                                    <li><a href="#">MSI</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -80,12 +80,12 @@
                                         <div id="collapseThree" class="collapse" data-parent="#accordionExample">
                                             <div class="card-body">
                                                 <ul>
-                                                    <li><a href="#">Coats</a></li>
-                                                    <li><a href="#">Jackets</a></li>
-                                                    <li><a href="#">Dresses</a></li>
-                                                    <li><a href="#">Shirts</a></li>
-                                                    <li><a href="#">T-shirts</a></li>
-                                                    <li><a href="#">Jeans</a></li>
+                                                    <li><a href="#">전체</a></li>
+                                                    <li><a href="#">iPhone</a></li>
+                                                    <li><a href="#">갤럭시 S</a></li>
+                                                    <li><a href="#">LG</a></li>
+                                                    <li><a href="#">갤럭시 A</a></li>
+                                                    <li><a href="#">효도폰</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -97,12 +97,12 @@
                                         <div id="collapseFour" class="collapse" data-parent="#accordionExample">
                                             <div class="card-body">
                                                 <ul>
-                                                    <li><a href="#">Coats</a></li>
-                                                    <li><a href="#">Jackets</a></li>
-                                                    <li><a href="#">Dresses</a></li>
-                                                    <li><a href="#">Shirts</a></li>
-                                                    <li><a href="#">T-shirts</a></li>
-                                                    <li><a href="#">Jeans</a></li>
+													<li><a href="#">전체</a></li>	                                                
+                                                    <li><a href="#">CPU</a></li>
+                                                    <li><a href="#">RAM</a></li>
+                                                    <li><a href="#">SSD</a></li>
+                                                    <li><a href="#">HDD</a></li>
+                                                    <li><a href="#">메인보드</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -114,12 +114,12 @@
                                         <div id="collapseFive" class="collapse" data-parent="#accordionExample">
                                             <div class="card-body">
                                                 <ul>
-                                                    <li><a href="#">Coats</a></li>
-                                                    <li><a href="#">Jackets</a></li>
-                                                    <li><a href="#">Dresses</a></li>
-                                                    <li><a href="#">Shirts</a></li>
-                                                    <li><a href="#">T-shirts</a></li>
-                                                    <li><a href="#">Jeans</a></li>
+                                                    <li><a href="#">태블릿</a></li>
+                                                    <li><a href="#">키보드</a></li>
+                                                    <li><a href="#">마우스</a></li>
+                                                    <li><a href="#">스피커</a></li>
+                                                    <li><a href="#">모니터</a></li>
+                                                    <li><a href="#">웹캠</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -127,98 +127,25 @@
                                 </div>
                             </div>
                         </div>
-                    
-                    <!-- 
-                        <div class="sidebar__filter">
-                            <div class="section-title">
-                                <h4>Shop by price</h4>
-                            </div>
-                            <div class="filter-range-wrap">
-                                <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                                data-min="33" data-max="99"></div>
-                                <div class="range-slider">
-                                    <div class="price-input">
-                                        <p>Price:</p>
-                                        <input type="text" id="minamount">
-                                        <input type="text" id="maxamount">
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">Filter</a>
-                        </div>
-                        
-                         -->
-                         
-                         <!-- 
-                        <div class="sidebar__sizes">
-                            <div class="section-title">
-                                <h4>Shop by size</h4>
-                            </div>
-                            <div class="size__list">
-                                <label for="xxs">
-                                    xxs
-                                    <input type="checkbox" id="xxs">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="xs">
-                                    xs
-                                    <input type="checkbox" id="xs">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="xss">
-                                    xs-s
-                                    <input type="checkbox" id="xss">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="s">
-                                    s
-                                    <input type="checkbox" id="s">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="m">
-                                    m
-                                    <input type="checkbox" id="m">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="ml">
-                                    m-l
-                                    <input type="checkbox" id="ml">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="l">
-                                    l
-                                    <input type="checkbox" id="l">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="xl">
-                                    xl
-                                    <input type="checkbox" id="xl">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                        </div>
-                        
-                         -->
-                         
-                         
+
                         <div class="sidebar__color">
                             <div class="section-title">
                                 <h4>정렬</h4>
                             </div>
                             <div class="size__list color__list">
                                 <label for="black">
-                                    가격낮은순 
-                                <input type="checkbox" id="black">
+                                    가격낮은순
+                                	<input type="radio" name="order" id="black" value="1">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label for="whites">
                                     가격높은순
-                                    <input type="checkbox" id="whites">
+                                    <input type="radio" name="order" id="whites" value="2">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label for="reds">
                                     판매량순
-                                    <input type="checkbox" id="reds">
+                                    <input type="radio" name="order" id="reds" value="3">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
@@ -332,7 +259,15 @@
     </div>
     <!-- Instagram End -->
 
-<%@ include file="footer.jsp" %>
+	<%@ include file="footer.jsp" %>
+
+	<script>
+		$("input[name='order']").change(function(){
+			var code = $("input[name='order']:checked").val();
+			location.href="/product/list/order?code="+code;
+			alert(code);
+		});
+	</script>
 
 </body>
 

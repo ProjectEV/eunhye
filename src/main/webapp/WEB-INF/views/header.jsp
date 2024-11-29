@@ -79,82 +79,71 @@
 	    <div class="container-fluid">
 	        <div class="row">
 	        
-	        	<div class="col-sm-2">
+	            <div class="col-sm-2">
                 	<nav class="header__menu" style="height: 88px;">          	
 	                	<ul>
-	                        <li><a href="/"><img style="width: 25px; height: 25px; margin: 0 0 0 20px" src="${pageContext.request.contextPath}/resources/images/header_category.png" alt=""></a>
-	                        	<ul class="dropdown" style="width: 1400px; height: 400px; margin: 33px 0 0 0; padding: 30px;">
-									
-									<ul style="display: inline-block; margin: 0 40px 0 10px;">
-										<li style="width: 150px; font-size: 20px; color: white; border-bottom: 1px solid var(--bs-gray-300); padding: 0 20px 10px 0; maring: 0 0 10px 0;">
+	                        <li><a href="/" style="padding: 0 0 0 20px;"><img style="width: 25px; height: 25px;" src="${pageContext.request.contextPath}/resources/images/header_category.png" alt=""></a>
+	                        	<ul class="dropdown" style="width: 1010px; height: 340px; margin: 33px 0 0 0; padding: 30px;">
+									<ul style="display: inline-block; margin: 0 40px 0 0;">
+										<li style="width: 150px; font-size: 20px; color: white; border-bottom: 1px solid var(--bs-gray-300); padding: 0 20px 10px 0; margin: 0 0 10px 0; ">
 											<img style="width: 25px; height: 25px;" src="${pageContext.request.contextPath}/resources/images/nav_pc.png" alt="">
 											컴퓨터
 										</li>
-										<li><a href="/" style="padding: 8px 0;">저장장치</a></li>
-		                                <li><a href="/" style="padding: 8px 0;">그래픽카드</a></li>
-		                                <li><a href="/" style="padding: 8px 0;">CPU</a></li>
-		                                <li><a href="/" style="padding: 8px 0;">메인보드</a></li>
+										<li><a href="/" style="padding: 8px 0;">전체</a></li>
+										<li><a href="/" style="padding: 8px 0;">LG전자</a></li>
+		                                <li><a href="/" style="padding: 8px 0;">삼성전자</a></li>
+		                                <li><a href="/" style="padding: 8px 0;">ASUS</a></li>
+		                                <li><a href="/" style="padding: 8px 0;">HP</a></li>
+		                                <li><a href="/" style="padding: 8px 0;">한성컴퓨터</a></li>
 									</ul>
 									<ul style="display: inline-block; margin: 0 40px 0 0;">
-										<li style="width: 150px; font-size: 20px; color: white; border-bottom: 1px solid var(--bs-gray-300); padding: 0 20px 10px 0; maring: 0 0 10px 0;">
+										<li style="width: 150px; font-size: 20px; color: white; border-bottom: 1px solid var(--bs-gray-300); padding: 0 20px 10px 0; margin: 0 0 10px 0;">
 											<img style="width: 25px; height: 25px; " src="${pageContext.request.contextPath}/resources/images/nav_note.png" alt="">
 											노트북
 										</li>
-										<li><a href="/" style="padding: 8px 0;">저장장치</a></li>
-		                                <li><a href="/" style="padding: 8px 0;">그래픽카드</a></li>
-		                                <li><a href="/" style="padding: 8px 0;">CPU</a></li>
-		                                <li><a href="/" style="padding: 8px 0;">메인보드</a></li>
+										<li><a href="/" style="padding: 8px 0;">전체</a></li>
+		                                <li><a href="/" style="padding: 8px 0;">Apple</a></li>
+		                                <li><a href="/" style="padding: 8px 0;">LG</a></li>
+		                                <li><a href="/" style="padding: 8px 0;">삼성전자</a></li>
+		                                <li><a href="/" style="padding: 8px 0;">레노버</a></li>
+		                                <li><a href="/" style="padding: 8px 0;">MSI</a></li>
 									</ul>
 									<ul style="display: inline-block; margin: 0 40px 0 0;">
-										<li style=" width: 150px; font-size: 20px; color: white; border-bottom: 1px solid var(--bs-gray-300); padding: 0 20px 10px 0; maring: 0 0 10px 0;">
+										<li style=" width: 150px; font-size: 20px; color: white; border-bottom: 1px solid var(--bs-gray-300); padding: 0 20px 10px 0; margin: 0 0 10px 0;">
 											<img style="width: 25px; height: 25px;" src="${pageContext.request.contextPath}/resources/images/nav_phone.png" alt="">
 											핸드폰
 										</li>
-										<li><a href="/" style="padding: 8px 0;">저장장치</a></li>
-		                                <li><a href="/" style="padding: 8px 0;">그래픽카드</a></li>
-		                                <li><a href="/" style="padding: 8px 0;">CPU</a></li>
-		                                <li><a href="/" style="padding: 8px 0;">메인보드</a></li>
+										<li><a href="/" style="padding: 8px 0;">전체</a></li>
+		                                <li><a href="/" style="padding: 8px 0;">iPhone</a></li>
+		                                <li><a href="/" style="padding: 8px 0;">갤럭시 S</a></li>
+		                                <li><a href="/" style="padding: 8px 0;">LG</a></li>
+		                                <li><a href="/" style="padding: 8px 0;">갤럭시 A</a></li>
+		                                <li><a href="/" style="padding: 8px 0;">효도폰</a></li>
 									</ul>									
 									<ul style="display: inline-block; margin: 0 40px 0 0;">
-										<li style=" width: 150px; font-size: 20px; color: white; border-bottom: 1px solid var(--bs-gray-300); padding: 0 20px 10px 0; maring: 0 0 10px 0;">
-											<img style="width: 25px; height: 25px;" src="${pageContext.request.contextPath}/resources/images/nav_tablet.png" alt="">
-											태블릿
-										</li>
-										<li><a href="/" style="padding: 8px 0;">저장장치</a></li>
-		                                <li><a href="/" style="padding: 8px 0;">그래픽카드</a></li>
-		                                <li><a href="/" style="padding: 8px 0;">CPU</a></li>
-		                                <li><a href="/" style="padding: 8px 0;">메인보드</a></li>
-									</ul>
-									<ul style="display: inline-block; margin: 0 40px 0 0;">
-										<li style="width: 150px; font-size: 20px; color: white; border-bottom: 1px solid var(--bs-gray-300); padding: 0 20px 10px 0; maring: 0 0 10px 0;">
+										<li style=" width: 150px; font-size: 20px; color: white; border-bottom: 1px solid var(--bs-gray-300); padding: 0 20px 10px 0; margin: 0 0 10px 0;">
 											<img style="width: 25px; height: 25px;" src="${pageContext.request.contextPath}/resources/images/nav_cpu.png" alt="">
-											컴퓨터 부품
+											컴퓨터부품
 										</li>
-										<li><a href="/" style="padding: 8px 0;">저장장치</a></li>
-		                                <li><a href="/" style="padding: 8px 0;">그래픽카드</a></li>
+										<li><a href="/" style="padding: 8px 0;">전체</a></li>
 		                                <li><a href="/" style="padding: 8px 0;">CPU</a></li>
-		                                <li><a href="/" style="padding: 8px 0;">메인보드</a></li>
-									</ul>									
-									<ul style="display: inline-block; margin: 0 40px 0 0;">
-										<li style="width: 150px; font-size: 20px; color: white; border-bottom: 1px solid var(--bs-gray-300); padding: 0 20px 10px 0; maring: 0 0 10px 0;">
-											<img style="width: 25px; height: 25px;" src="${pageContext.request.contextPath}/resources/images/nav_key.png" alt="">
-											키보드
-										</li>
-										<li><a href="/" style="padding: 8px 0;">저장장치</a></li>
-		                                <li><a href="/" style="padding: 8px 0;">그래픽카드</a></li>
-		                                <li><a href="/" style="padding: 8px 0;">CPU</a></li>
+		                                <li><a href="/" style="padding: 8px 0;">RAM</a></li>
+		                                <li><a href="/" style="padding: 8px 0;">SSD</a></li>
+		                                <li><a href="/" style="padding: 8px 0;">HDD</a></li>
 		                                <li><a href="/" style="padding: 8px 0;">메인보드</a></li>
 									</ul>
 									<ul style="display: inline-block; margin: 0 0 0 0;">
-										<li style="width: 150px; font-size: 20px; color: white; border-bottom: 1px solid var(--bs-gray-300); padding: 0 20px 10px 0; maring: 0 0 10px 0;">
-											<img style="width: 25px; height: 25px;" src="${pageContext.request.contextPath}/resources/images/nav_mouse.png" alt="">
-											마우스
+										<li style="width: 150px; font-size: 20px; color: white; border-bottom: 1px solid var(--bs-gray-300); padding: 0 20px 10px 0; margin: 0 0 10px 0;">
+											<img style="width: 25px; height: 25px;" src="${pageContext.request.contextPath}/resources/images/nav_etc.png" alt="">
+											기타
 										</li>
-										<li><a href="/" style="padding: 8px 0;">저장장치</a></li>
-		                                <li><a href="/" style="padding: 8px 0;">그래픽카드</a></li>
-		                                <li><a href="/" style="padding: 8px 0;">CPU</a></li>
-		                                <li><a href="/" style="padding: 8px 0;">메인보드</a></li>
-									</ul>																		
+										<li><a href="/" style="padding: 8px 0;">태블릿</a></li>
+		                                <li><a href="/" style="padding: 8px 0;">키보드</a></li>
+		                                <li><a href="/" style="padding: 8px 0;">마우스</a></li>
+		                                <li><a href="/" style="padding: 8px 0;">스피커</a></li>
+		                                <li><a href="/" style="padding: 8px 0;">모니터</a></li>
+		                                <li><a href="/" style="padding: 8px 0;">웹캠</a></li>
+									</ul>		
 	                            </ul>
 	                        </li>
                         </ul>

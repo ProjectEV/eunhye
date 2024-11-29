@@ -38,6 +38,12 @@ public class ProjectController {
 	@Inject
 	ProjectService projectService;
 	
+	//장바구니
+	@RequestMapping(value="project/cart", method=RequestMethod.GET)
+	public String cart() {
+		return "cart";
+	}
+	
 	@RequestMapping(value="project/product_register", method= RequestMethod.GET)
 	public String productRegister() {
 		logger.info("관리자 글 작성 이동");
@@ -131,20 +137,9 @@ public class ProjectController {
 		
 	}
 	
-	
-	
-	
-	
-	
-	//제품 목록 검색
-	@RequestMapping(value="product/list", method=RequestMethod.GET)
-	public String ProductSearch(@RequestParam("keyword") String keyword, HttpServletRequest request, Model model) throws Exception{
-		request.setCharacterEncoding("UTF-8");
-		
-		//검색어 가지고 리스트 검색
-		List<ProductVO> list = projectService.productSearch(keyword);
-		model.addAttribute("list", list);
-		
+	//조회된 제품의 이미지 조회
+	public List<FileVO> listSelect(List<ProductVO> list) {
+
 		//리스트에 뜬 제품 아이디 모두 조회
 		String[] productno = new String[100];
 		for(int i=0; i<list.size(); i++) {
@@ -154,16 +149,47 @@ public class ProjectController {
 		
 		//제품 이미지중 첫번째 이미지 조회
 		List<FileVO> imageList = projectService.listFileSelect(productno);
-		model.addAttribute("imageList", imageList);
+		
+		return imageList;
+	}
+	
+	//키워드 검색
+	@RequestMapping(value="product/list", method=RequestMethod.GET)
+	public String ProductSearch(@RequestParam("keyword") String keyword, HttpServletRequest request, Model model) throws Exception{
+		request.setCharacterEncoding("UTF-8");
+		
+		//검색어 가지고 리스트 검색
+		List<ProductVO> list = projectService.productSearch(keyword);
+		model.addAttribute("list", list);
+		model.addAttribute("imageList", listSelect(list));
+				
+		return "product_list";
+	}
+	
+	//카테고리 검색
+	@RequestMapping(value="product/list/category", method=RequestMethod.GET)
+	public String categorySearch(@RequestParam("category") int category, HttpServletRequest request, Model model) throws Exception{
+		request.setCharacterEncoding("UTF-8");
+		
+		//카테고리 검색
+		List<ProductVO> list = projectService.categorySearch(category);
+		model.addAttribute("list", list);
+		model.addAttribute("imageList", listSelect(list));
 		
 		return "product_list";
 	}
 	
-	
-	//장바구니
-	@RequestMapping(value="project/cart", method=RequestMethod.GET)
-	public String cart() {
-		return "cart";
+	//정렬 검색
+	@RequestMapping(value="product/list/order", method=RequestMethod.GET)
+	public String orderSearch(@RequestParam("code") int code, HttpServletRequest request, Model model) throws Exception{
+		request.setCharacterEncoding("UTF-8");
+		
+		//정렬 검색
+		List<ProductVO> list = projectService.orderSearch(code);
+		model.addAttribute("list", list);
+		model.addAttribute("imageList", listSelect(list));
+		
+		return "product_list";
 	}
 	
 	//제품 상세페이지
@@ -261,7 +287,6 @@ public class ProjectController {
 		
 		//주소지 리스트 수정 update
 		int result = projectService.addressManageUpdate2(addressVO);
-		
 		return "redirect:/product/address_manage";
 	}
 	

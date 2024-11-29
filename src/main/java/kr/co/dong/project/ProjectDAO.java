@@ -13,6 +13,12 @@ public interface ProjectDAO {
 	//검색
 	public List<ProductVO> productSearch(String keyword);
 	
+	//카테고리 검색 
+	public List<ProductVO> categorySearch(int category);
+	
+	//정렬 검색 
+	public List<ProductVO> orderSearch(int code);
+	
 	//제품 상세페이지
 	public ProductVO productDetail(String product_id);
 

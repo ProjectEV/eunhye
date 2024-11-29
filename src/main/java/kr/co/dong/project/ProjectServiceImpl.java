@@ -131,4 +131,16 @@ public class ProjectServiceImpl implements ProjectService {
 		return projectDAO.boardsNoLast();
 	}
 
+	@Override
+	public List<ProductVO> categorySearch(int category) {
+		// TODO Auto-generated method stub
+		return projectDAO.categorySearch(category);
+	}
+
+	@Override
+	public List<ProductVO> orderSearch(int code) {
+		// TODO Auto-generated method stub
+		return projectDAO.orderSearch(code);
+	}
+
 }
