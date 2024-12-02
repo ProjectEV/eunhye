@@ -1,6 +1,7 @@
 package kr.co.dong.controller;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -17,9 +18,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.dong.project.AddressVO;
@@ -171,8 +170,11 @@ public class ProjectController {
 	public String categorySearch(@RequestParam("category") int category, HttpServletRequest request, Model model) throws Exception{
 		request.setCharacterEncoding("UTF-8");
 		
+		Map<String, Object> codeMap = new HashMap<>();
+		codeMap.put("category", category);
+				
 		//카테고리 검색
-		List<ProductVO> list = projectService.categorySearch(category);
+		List<ProductVO> list = projectService.categorySearch(codeMap);
 		model.addAttribute("list", list);
 		model.addAttribute("imageList", listSelect(list));
 		
@@ -184,8 +186,11 @@ public class ProjectController {
 	public String orderSearch(@RequestParam("code") int code, HttpServletRequest request, Model model) throws Exception{
 		request.setCharacterEncoding("UTF-8");
 		
+		Map<String, Object> codeMap = new HashMap<>();
+		codeMap.put("code", code);
+		
 		//정렬 검색
-		List<ProductVO> list = projectService.orderSearch(code);
+		List<ProductVO> list = projectService.orderSearch(codeMap);
 		model.addAttribute("list", list);
 		model.addAttribute("imageList", listSelect(list));
 		

@@ -1,6 +1,7 @@
 package kr.co.dong.project;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -131,15 +132,15 @@ public class ProjectDAOImpl implements ProjectDAO {
 	}
 
 	@Override
-	public List<ProductVO> categorySearch(int category) {
+	public List<ProductVO> categorySearch(Map<String, Object> codeMap) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(nameSpace + ".categorySearch", category);
+		return sqlSession.selectList(nameSpace + ".categorySearch", codeMap);
 	}
 
 	@Override
-	public List<ProductVO> orderSearch(int code) {
+	public List<ProductVO> orderSearch(Map<String, Object> codeMap) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(nameSpace + ".orderSearch", code);
+		return sqlSession.selectList(nameSpace + ".orderSearch", codeMap);
 	}
 
 }

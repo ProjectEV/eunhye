@@ -3,6 +3,7 @@ package kr.co.dong.project;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.inject.Inject;
@@ -132,15 +133,15 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 	@Override
-	public List<ProductVO> categorySearch(int category) {
+	public List<ProductVO> categorySearch(Map<String, Object> codeMap) {
 		// TODO Auto-generated method stub
-		return projectDAO.categorySearch(category);
+		return projectDAO.categorySearch(codeMap);
 	}
 
 	@Override
-	public List<ProductVO> orderSearch(int code) {
+	public List<ProductVO> orderSearch(Map<String, Object> codeMap) {
 		// TODO Auto-generated method stub
-		return projectDAO.orderSearch(code);
+		return projectDAO.orderSearch(codeMap);
 	}
 
 }

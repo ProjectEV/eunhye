@@ -67,26 +67,34 @@
    </select>
    
    <!-- 카테고리 검색 -->
-   <select id="categorySearch" parameterType="java.lang.Integer" resultType="ProductVO">
+   <select id="categorySearch" parameterType="java.util.Map" resultType="ProductVO">
 	  select *
 	  from product
-	  where product_category = #{category}
+	  where del = 0 and
+	  	<choose>
+			<when test='category &lt; 10'>
+				product_category like concat(#{category},'%')
+			</when>
+			<otherwise>
+				product_category = #{category}	
+			</otherwise>
+		</choose>
    </select>
    
    <!-- 정렬 검색 -->
-   <select id="orderSearch" parameterType="java.lang.String" resultType="ProductVO">
+   <select id="orderSearch" parameterType="java.util.Map" resultType="ProductVO">
 	  select *
 	  from product
 	  where del = 0
 	  	<choose>
-			<when test='#{code}==1'>
+			<when test='code==1'>
 				order by product_price asc		
 			</when>
-			<when test='#{code}==2'>
+			<when test='code==2'>
 				order by product_price desc		
 			</when>
 			<otherwise>
-				order by product_price desc		
+				order by product_sales desc		
 			</otherwise>
 		</choose>
    </select>

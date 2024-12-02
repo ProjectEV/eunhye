@@ -1,6 +1,7 @@
 package kr.co.dong.project;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,10 +15,10 @@ public interface ProjectService {
 	public List<ProductVO> productSearch(String keyword);
 	
 	//카테고리 검색 
-	public List<ProductVO> categorySearch(int category);
+	public List<ProductVO> categorySearch(Map<String, Object> codeMap);
 	
 	//정렬 검색 
-	public List<ProductVO> orderSearch(int code);
+	public List<ProductVO> orderSearch(Map<String, Object> codeMap);
 	
 	//제품 상세페이지
 	public ProductVO productDetail(String product_id);

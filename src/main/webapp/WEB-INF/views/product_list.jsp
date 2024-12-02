@@ -6,6 +6,19 @@
 <meta charset="UTF-8">
 <title>TechNova</title>
 <head>
+<style>
+
+.order {
+	backgroud-color: black;
+	color: black;
+}
+
+.order:hover {
+	backgroud-color: blue;
+	text-decoration: none;
+}
+
+</style>
 </head>
 
 <body>
@@ -49,12 +62,12 @@
                                         <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
                                             <div class="card-body">
                                                 <ul>
-                                                    <li><a href="#">전체</a></li>
-                                                    <li><a href="#">LG전자</a></li>
-                                                    <li><a href="#">삼성전자</a></li>
-                                                    <li><a href="#">ASUS</a></li>
-                                                    <li><a href="#">HP</a></li>
-                                                    <li><a href="#">한성컴퓨터</a></li>
+                                                    <li><a href="/product/list/category?category=1">전체</a></li>
+                                                    <li><a href="/product/list/category?category=11">Dell</a></li>
+                                                    <li><a href="/product/list/category?category=12">삼성전자</a></li>
+                                                    <li><a href="/product/list/category?category=13">LG전자</a></li>
+                                                    <li><a href="/product/list/category?category=14">HP</a></li>
+                                                    <li><a href="/product/list/category?category=15">Mac</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -66,12 +79,12 @@
                                         <div id="collapseTwo" class="collapse" data-parent="#accordionExample">
                                             <div class="card-body">
                                                 <ul>
-                                                    <li><a href="#">전체</a></li>
-                                                    <li><a href="#">Apple</a></li>
-                                                    <li><a href="#">LG전자</a></li>
-                                                    <li><a href="#">삼성전자</a></li>
-                                                    <li><a href="#">레노버</a></li>
-                                                    <li><a href="#">MSI</a></li>
+                                                    <li><a href="/product/list/category?category=2">전체</a></li>
+                                                    <li><a href="/product/list/category?category=21">MacBook</a></li>
+                                                    <li><a href="/product/list/category?category=22">그램</a></li>
+                                                    <li><a href="/product/list/category?category=23">갤럭시북</a></li>
+                                                    <li><a href="/product/list/category?category=24">레노버</a></li>
+                                                    <li><a href="/product/list/category?category=25">MSI</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -83,12 +96,12 @@
                                         <div id="collapseThree" class="collapse" data-parent="#accordionExample">
                                             <div class="card-body">
                                                 <ul>
-                                                    <li><a href="#">전체</a></li>
-                                                    <li><a href="#">iPhone</a></li>
-                                                    <li><a href="#">갤럭시 S</a></li>
-                                                    <li><a href="#">LG</a></li>
-                                                    <li><a href="#">갤럭시 A</a></li>
-                                                    <li><a href="#">효도폰</a></li>
+                                                    <li><a href="/product/list/category?category=3">전체</a></li>
+                                                    <li><a href="/product/list/category?category=31">iPhone</a></li>
+                                                    <li><a href="/product/list/category?category=32">갤럭시 S</a></li>
+                                                    <li><a href="/product/list/category?category=33">LG</a></li>
+                                                    <li><a href="/product/list/category?category=34">갤럭시 A</a></li>
+                                                    <li><a href="/product/list/category?category=35">샤오미</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -100,12 +113,12 @@
                                         <div id="collapseFour" class="collapse" data-parent="#accordionExample">
                                             <div class="card-body">
                                                 <ul>
-													<li><a href="#">전체</a></li>	                                                
-                                                    <li><a href="#">CPU</a></li>
-                                                    <li><a href="#">RAM</a></li>
-                                                    <li><a href="#">SSD</a></li>
-                                                    <li><a href="#">HDD</a></li>
-                                                    <li><a href="#">메인보드</a></li>
+													<li><a href="/product/list/category?category=4">전체</a></li>	                                                
+                                                    <li><a href="/product/list/category?category=41">CPU</a></li>
+                                                    <li><a href="/product/list/category?category=42">RAM</a></li>
+                                                    <li><a href="/product/list/category?category=43">SSD</a></li>
+                                                    <li><a href="/product/list/category?category=44">HDD</a></li>
+                                                    <li><a href="/product/list/category?category=45">메인보드</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -117,12 +130,12 @@
                                         <div id="collapseFive" class="collapse" data-parent="#accordionExample">
                                             <div class="card-body">
                                                 <ul>
-                                                    <li><a href="#">태블릿</a></li>
-                                                    <li><a href="#">키보드</a></li>
-                                                    <li><a href="#">마우스</a></li>
-                                                    <li><a href="#">스피커</a></li>
-                                                    <li><a href="#">모니터</a></li>
-                                                    <li><a href="#">웹캠</a></li>
+                                                    <li><a href="/product/list/category?category=51">태블릿</a></li>
+                                                    <li><a href="/product/list/category?category=52">키보드</a></li>
+                                                    <li><a href="/product/list/category?category=53">마우스</a></li>
+                                                    <li><a href="/product/list/category?category=54">스피커</a></li>
+                                                    <li><a href="/product/list/category?category=55">모니터</a></li>
+                                                    <li><a href="/product/list/category?category=56">웹캠</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -136,21 +149,9 @@
                                 <h4>정렬</h4>
                             </div>
                             <div class="size__list color__list">
-                                <label for="black">
-                                    가격낮은순
-                                	<input type="radio" name="order" id="black" value="1">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="whites">
-                                    가격높은순
-                                    <input type="radio" name="order" id="whites" value="2">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="reds">
-                                    판매량순
-                                    <input type="radio" name="order" id="reds" value="3">
-                                    <span class="checkmark"></span>
-                                </label>
+                              	<div style="margin: 7px 0;"><a class="order" href="/product/list/order?code=1" style="font-size: 14px;">가격낮은순</a></div>
+                              	<div style="margin: 7px 0;"><a class="order" href="/product/list/order?code=2" style="font-size: 14px;">가격높은순</a></div>
+                              	<div style="margin: 7px 0;"><a class="order" href="/product/list/order?code=3" style="font-size: 14px;">판매량순</a></div>
                             </div>
                         </div>
                     </div>
@@ -263,14 +264,6 @@
     <!-- Instagram End -->
 
 	<%@ include file="footer.jsp" %>
-
-	<script>
-		$("input[name='order']").change(function(){
-			var code = $("input[name='order']:checked").val();
-			location.href="/product/list/order?code="+code;
-			alert(code);
-		});
-	</script>
 
 </body>
 
