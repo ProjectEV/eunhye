@@ -144,4 +144,10 @@ public class ProjectServiceImpl implements ProjectService {
 		return projectDAO.orderSearch(codeMap);
 	}
 
+	@Override
+	public List<ProductVO> homeList(Map<String, Object> codeMap) {
+		// TODO Auto-generated method stub
+		return projectDAO.homeList(codeMap);
+	}
+
 }

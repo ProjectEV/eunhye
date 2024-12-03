@@ -143,4 +143,10 @@ public class ProjectDAOImpl implements ProjectDAO {
 		return sqlSession.selectList(nameSpace + ".orderSearch", codeMap);
 	}
 
+	@Override
+	public List<ProductVO> homeList(Map<String, Object> codeMap) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(nameSpace + ".homeList", codeMap);
+	}
+
 }

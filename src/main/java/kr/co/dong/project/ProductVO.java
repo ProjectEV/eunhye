@@ -8,7 +8,14 @@ public class ProductVO {
 	private int product_category;
 	private int product_remain;
 	private int product_sales;
+	private String register_date;
 	
+	public String getRegister_date() {
+		return register_date;
+	}
+	public void setRegister_date(String register_date) {
+		this.register_date = register_date;
+	}
 	public String getProduct_id() {
 		return product_id;
 	}

@@ -11,6 +11,9 @@ public interface ProjectDAO {
 
 	public List<InventoryVO> listInventory();
 	
+	//홈 제품 목록
+	public List<ProductVO> homeList(Map<String, Object> codeMap);
+	
 	//검색
 	public List<ProductVO> productSearch(String keyword);
 	

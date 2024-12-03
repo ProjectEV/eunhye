@@ -22,8 +22,8 @@
   <!-- 제품 등록 -->
   <insert id="productRegister" parameterType="ProductVO">
 	insert into 
-	product (product_id, product_name, product_price, product_content, product_category, product_remain, product_sales)
-	values (#{product_id}, #{product_name}, #{product_price}, #{product_content}, #{product_category}, #{product_remain}, 0)
+	product (product_id, product_name, product_price, product_content, product_category, product_remain, product_sales, register_date)
+	values (#{product_id}, #{product_name}, #{product_price}, #{product_content}, #{product_category}, #{product_remain}, 0, now())
   </insert>
   
   <!-- 파일 업로드 -->
@@ -57,6 +57,26 @@
 		FROM ranked_files
 		WHERE rnk = 1;
   </select>
+  
+   <!-- 홈 제품 목록 -->
+   <select id="homeList" parameterType="java.util.Map" resultType="ProductVO">
+	  	<choose>
+	  		<!-- 최근 등록된 제품 -->
+			<when test='code==1'>
+				select TOP 8 *
+				from product
+				where del = 0 and
+				order by register_date desc	
+			</when>
+			<!-- 많이 팔린 제품 -->
+			<otherwise>
+				select TOP 9 *
+				from product
+				where del = 0 and
+				order by product_sales desc	
+			</otherwise>
+		</choose>
+   </select>
   
    <!-- 키워드 검색 -->
    <select id="productSearch" parameterType="java.lang.String" resultType="ProductVO">

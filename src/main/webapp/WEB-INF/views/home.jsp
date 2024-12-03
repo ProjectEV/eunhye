@@ -66,6 +66,7 @@
 	            </div>
 	        </div>
 	        <div class="row property__gallery">
+	        
 	            <div class="col-lg-3 col-md-4 col-sm-6 mix pc_notebook">
 	                <div class="product__item">
 	                    <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/resources/images/notebook2.jpg">
@@ -89,7 +90,8 @@
 	                    </div>
 	                </div>
 	            </div>
-	            <div class="col-lg-3 col-md-4 col-sm-6 mix pc_notebook">
+	            
+	            <div class="col-lg-3 col-md-4 col-sm-6 mix ${}">
 	                <div class="product__item">
 	                    <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/resources/images/notebook2.jpg">
 	                        <ul class="product__hover">
@@ -111,6 +113,7 @@
 	                    </div>
 	                </div>
 	            </div>
+	            
 	            <div class="col-lg-3 col-md-4 col-sm-6 mix pc_notebook">
 	                <div class="product__item">
 	                    <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/resources/images/notebook2.jpg">

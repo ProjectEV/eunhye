@@ -37,6 +37,22 @@ public class ProjectController {
 	@Inject
 	ProjectService projectService;
 	
+	//홈-새로운 상품 띄우기(제품 등록된 날짜 순으로)
+//	@RequestMapping(value="/", method=RequestMethod.GET)
+//	public String home2(Model model) {
+//		 Map<String, Object> codeMap = new HashMap<>();
+//		 
+//		 codeMap.put("code", 1);
+//		 List<ProductVO> newList = projectService.homeList(codeMap);
+//		 model.addAttribute("newList", newList);
+//		 
+//		 codeMap.put("code", 2);
+//		 List<ProductVO> bestList = projectService.homeList(codeMap); 
+//		 model.addAttribute("bestList", bestList);
+//		 
+//		 return "home";
+//	}
+	
 	//장바구니
 	@RequestMapping(value="project/cart", method=RequestMethod.GET)
 	public String cart() {
