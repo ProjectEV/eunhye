@@ -67,6 +67,7 @@
 					                                    <td class="cart__quantity">${buydetail.buydetail_amount}개</td>
 					                                    <td class="cart__total" style="text-align: center;"> 합계 <br> ${buydetailProduct.product_price * buydetail.buydetail_amount}</td>
 					                                    <td class="cart__close"><span class="icon_close">취소</span></td>
+					                                    <td class="cart__close"><a href="/product/review?product_id=${buydetailProduct.product_id}">상품평 작성</a></td>
 					                                </tr>
 					                             </tbody>
 				  							 </c:if>					  	

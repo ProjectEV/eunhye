@@ -86,14 +86,20 @@ public class ProjectController {
 	
 	//리뷰작성 처리
 	@RequestMapping(value="product/review", method = RequestMethod.GET)
-	public String review(Model model, HttpSession session) {
+	public String review(@RequestParam("product_id") String product_id, Model model, HttpSession session) {
 		logger.info("리뷰작성 화면");
 		//session에 담겨있는 아이디 값 리뷰 데이터로 넘겨주기 위한 처리
 //		Map r = (Map)session.getAttribute("user");
 //		String user_id =(String)r.get("user_id");
+		
 		String user_id = "yoonho";
-
-		model.addAttribute("user_id",user_id);
+		model.addAttribute("user_id", user_id);
+		
+		ProductVO vo = projectService.productDetail(product_id);
+		model.addAttribute("product", vo);
+		
+		List<String> file_name = projectService.fileSelect(product_id);
+		model.addAttribute("file_name", file_name);
 		
 		return "review";
 	}
@@ -176,7 +182,7 @@ public class ProjectController {
 		//카테고리 검색
 		List<ProductVO> list = projectService.categorySearch(codeMap);
 		model.addAttribute("list", list);
-		model.addAttribute("imageList", listSelect(list));
+		model.addAttribute("imageList", listSelect(list));            
 		
 		return "product_list";
 	}

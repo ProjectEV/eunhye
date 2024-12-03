@@ -119,7 +119,7 @@
                             <form method="post" action="/product/review" enctype="multipart/form-data">
                             
                            	    <img src="placeholder-image.jpg" alt="상품 이미지" >
-                           	    <h5>상품이름</h5>
+                           	    <h5>#{product.product_name}</h5>
                            	    
                            	    <br><br><br>
                                 <p class="form-label">상품 만족도 <span>*</span></p>
