@@ -63,17 +63,19 @@
 	  	<choose>
 	  		<!-- 최근 등록된 제품 -->
 			<when test='code==1'>
-				select TOP 8 *
+				select *
 				from product
-				where del = 0 and
-				order by register_date desc	
+				where del = 0
+				order by register_date desc
+                limit 8
 			</when>
 			<!-- 많이 팔린 제품 -->
 			<otherwise>
-				select TOP 9 *
+				select *
 				from product
-				where del = 0 and
+				where del = 0
 				order by product_sales desc	
+				limit 9
 			</otherwise>
 		</choose>
    </select>

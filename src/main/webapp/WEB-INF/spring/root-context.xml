@@ -18,7 +18,7 @@
 	</bean>	
 	
 	
-	<!-- Root Context: defines shared resources visible to all other web components
+	<!-- Root Context: defines shared resources visible to all other web components 
 	<bean id="dataSourceSpied" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
 		<property name="url" value="jdbc:mysql://localhost:3306/project?serverTimezone=UTC"></property>
