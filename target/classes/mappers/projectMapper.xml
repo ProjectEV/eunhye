@@ -111,6 +111,7 @@
 	  select *
 	  from buy
 	  where buy_userid = #{userid}
+	  order by buy_regdate asc
    </select>
    
    <!-- 마이페이지 디테일 -->
