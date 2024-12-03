@@ -4,12 +4,12 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="kr.co.dong.projectMapper">
   
-   <!-- 리뷰작성 처리 -->	
-	<insert id="review" parameterType="BoardsDTO">
-		insert into boards(boards_title, boards_content, boards_userid, boards_regdate,
-		boards_readcnt, boards_category, del, boards_productid)
-		values(#{boards_title}, #{boards_content}, #{boards_userid}, curdate(), 0,1,0, #{boards_productid})
-	</insert>
+	<!-- 리뷰작성 처리 -->   
+     <insert id="review" parameterType="BoardsDTO">
+        insert into boards(boards_title, boards_content, boards_userid, boards_regdate,
+        boards_readcnt, boards_category, del, boards_productid, boards_review_score)
+        values(#{boards_title}, #{boards_content}, #{boards_userid}, curdate(), 0,1,0, #{boards_productid}, #{boards_review_score})
+     </insert>
 	
 	<!-- 보드 테이블 마지막 튜플의 번호 조회 -->
 	<select id="boardsNoLast" resultType="java.lang.Integer">

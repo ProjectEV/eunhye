@@ -10,7 +10,14 @@ public class BoardsDTO {
 	private int boards_category;
 	private int del;
 	private String boards_productid;
+	private int boards_review_score;
 	
+	public int getBoards_review_score() {
+		return boards_review_score;
+	}
+	public void setBoards_review_score(int boards_review_score) {
+		this.boards_review_score = boards_review_score;
+	}
 	public String getBoards_productid() {
 		return boards_productid;
 	}

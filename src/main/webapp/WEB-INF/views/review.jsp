@@ -118,8 +118,9 @@
                             <h4>상품평 작성</h4><br><br>
                             <form method="post" action="/product/review" enctype="multipart/form-data">
                             
-                           	    <img src="placeholder-image.jpg" alt="상품 이미지" >
-                           	    <h5>#{product.product_name}</h5>
+                           	    <img src="${pageContext.request.contextPath}/images/${file_name}" alt="상품 이미지">
+								<input type="hidden" id="boards_productid" name="boards_productid" value="${product.product_id}">
+                           	    <h5>${product.product_name}</h5>
                            	    
                            	    <br><br><br>
                                 <p class="form-label">상품 만족도 <span>*</span></p>
@@ -130,16 +131,17 @@
 	  								    <span class="star">&#9733;</span>
 	         							<span class="star">&#9733;</span>
 	         							<span class="star">&#9733;</span>
-	         							<input type="hidden" id="rating" name="rating" >
+	         							<input type="hidden" id="boards_review_score" name="boards_review_score" >
          							</div>
       							</div>
                             		
                              	<p class="form-label">제목 <span>*</span></p>
                                 <input type="text" id="boards_title" name="boards_title" style="width: 400px;" required > <br>
-                                 <p class="form-label">내용 <span>*</span></p>
-                                <textarea style=" width: 400px; height: 200px;" rows="70" cols="70" id="boards_content" name="boards_content" required ></textarea>
-                                <p class="form-label">사진 등록 <span></span></p>
                                 
+                                <p class="form-label">내용 <span>*</span></p>
+                                <textarea style=" width: 400px; height: 200px;" rows="70" cols="70" id="boards_content" name="boards_content" required ></textarea>
+                                
+                                <p class="form-label">사진 등록 <span></span></p>
 					      	    <div class="mb-3">
 								  <input style="height: 35px; padding-left: 12px;" class="form-control" type="file" id="formFile" multiple="multiple" name="files">
 								</div>
@@ -151,7 +153,7 @@
                             </form>
                         </div>
 
-	<script>
+<script>
     // 별점 Hover 및 클릭 동작
     const stars = document.querySelectorAll('.review-stars span');
     let clickedIndex = -1; // 클릭된 별점 인덱스를 저장
@@ -180,8 +182,8 @@
         });
     });
     
- 		// 별점 클릭 이벤트 처리
-    	$('.star').click(function() {
+       // 별점 클릭 이벤트 처리
+       $('.star').click(function() {
         // 부모 요소의 모든 자식 span 요소에서 'on' 클래스를 제거
         $(this).parent().children('span').removeClass('on');
 
@@ -189,11 +191,11 @@
         $(this).addClass('on').prevAll('span').addClass('on');
 
         // 선택된 별점 개수를 구하여 변수에 저장
-        const rating = $(this).parent().children('span.on').length;
-        alert(rating);
+        const boards_review_score = $(this).parent().children('span.on').length;
+        alert(boards_review_score);
 
         // 'rating' 값을 hidden input에 저장
-        $('#rating').val(rating);
+        $('#boards_review_score').val(boards_review_score);
     });
     
     

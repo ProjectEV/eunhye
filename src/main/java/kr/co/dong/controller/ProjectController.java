@@ -99,7 +99,9 @@ public class ProjectController {
 		model.addAttribute("product", vo);
 		
 		List<String> file_name = projectService.fileSelect(product_id);
-		model.addAttribute("file_name", file_name);
+		
+		//첫번째 사진만 가져옴
+		model.addAttribute("file_name", file_name.get(0));
 		
 		return "review";
 	}
@@ -114,6 +116,8 @@ public class ProjectController {
 		
 		//보드 테이블의 마지막 튜플 번호 조회
 		int boards_no_last = projectService.boardsNoLast();
+		
+		int r = projectService.review(boardsDTO);
 		
 		//다중 파일 저장
 		String imagePath = "/C:\\uploads/";
@@ -132,9 +136,7 @@ public class ProjectController {
 			
 			projectService.fileUpload(fileVO);
 		}
-		
-		int r = projectService.review(boardsDTO);
-		
+				
 		if(r>0) {
 			rttr.addFlashAttribute("msg","완료");
 		}
