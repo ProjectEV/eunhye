@@ -103,6 +103,13 @@
 		</choose>
    </select>
    
+   <!-- 카테고리 조회 -->
+   <select id="selectCategory" parameterType="java.lang.String" resultType="java.lang.String">
+	  select code_name
+	  from code
+	  where code_id = "product_category" and code_category=#{category}
+   </select>
+   
    <!-- 정렬 검색 -->
    <select id="orderSearch" parameterType="java.util.Map" resultType="ProductVO">
 	  select *

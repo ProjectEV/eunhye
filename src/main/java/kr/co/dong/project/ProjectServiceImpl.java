@@ -150,4 +150,10 @@ public class ProjectServiceImpl implements ProjectService {
 		return projectDAO.homeList(codeMap);
 	}
 
+	@Override
+	public String selectCategory(Map<String, Object> codeMap) {
+		// TODO Auto-generated method stub
+		return projectDAO.selectCategory(codeMap);
+	}
+
 }

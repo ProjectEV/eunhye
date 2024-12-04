@@ -76,5 +76,8 @@ public interface ProjectDAO {
 	public int boardsNoLast();
 
 
+	
+	//카테고리 조회
+	public String selectCategory(Map<String, Object> codeMap);
 
 }

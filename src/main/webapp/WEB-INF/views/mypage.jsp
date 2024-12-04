@@ -51,9 +51,13 @@
 											  	<tbody>
 					                                <tr>
 					                                    <td class="cart__product__item">
-					                                        <img src="${pageContext.request.contextPath}/resources/img/shop-cart/cp-1.jpg" alt="">
+						                                    <c:forEach var="imageList" items="${imageList}">
+										                        <c:if test="${imageList.file_connection_id == buydetailProduct.product_id}">
+					                                        		<img style="style=width: 90px; height: 90px;" src="${pageContext.request.contextPath}/images/${imageList.file_name}" alt="">
+										                    	</c:if>
+								                    		</c:forEach>
 					                                        <div class="cart__product__item__title">
-					                                            <h6>${buydetailProduct.product_name}</h6>
+					                                        	<a href="/product/detail?product_id=${buydetailProduct.product_id}" style="text-decoration: none;"><h6>${buydetailProduct.product_name}</h6></a>
 					                                            <div class="rating">
 					                                                <i class="fa fa-star"></i>
 					                                                <i class="fa fa-star"></i>

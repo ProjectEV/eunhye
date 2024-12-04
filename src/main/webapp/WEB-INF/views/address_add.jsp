@@ -30,6 +30,8 @@
 	<div style="padding: 70px">
 	   	  <div class="contact__form">
 				<div style="margin: 0 0 60px 0">
+					<a href="#" onclick="goToParent()"><img style="width: 30px; height: 30px;" src="${pageContext.request.contextPath}/resources/images/prev.png" alt=""></a>
+					
 					<h4 style="text-align: center; font-weight: bold;">배송지 추가</h4>
 				</div>				
 				<form method="post" action="${pageContext.request.contextPath}/product/address_manage/add">
@@ -136,35 +138,16 @@
 	    var address = "(" + zipcode + ") " + address1 + " (" + address2 + ")";
 	    	    
 	    document.getElementById("address_content").value = address;
-    	alert("1");
 	    
 	    var checkbox = document.getElementById('address_main');
 	    var is_checked = checkbox.checked;
-    	alert(is_checked);
-    	alert("2");
 	    
 	    if (is_checked == true) {
 	    	document.getElementById("address_main").value = 1;
-	    	alert("메인");
 	    } else {
 	    	document.getElementById("address_main").value = 0;
-	    	alert("기본");
 	    }
-    	alert("3");
-	    
-<!--   	    const checkbox = document.getElementById("stockin");-->
-
-<!--   	    checkbox.addEventListener("change", function () {-->
-<!--   	        if (checkbox.checked) {-->
-<!--   	    	    document.getElementById("address_main").value = 1;-->
-<!--   	    	    alert("메인");-->
-<!--   	        } else {-->
-<!--   	    	    document.getElementById("address_main").value = 0;-->
-<!--   	    	    alert("기본");-->
-<!--   	        }-->
-<!--   	    });-->
-   
-	}
+	}        
 	</script>
 
     

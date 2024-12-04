@@ -114,44 +114,44 @@
 
 </head>
 <body>
-					<div class="contact__form">
-                            <h4>상품평 작성</h4><br><br>
-                            <form method="post" action="/product/review" enctype="multipart/form-data">
-                            
-                           	    <img src="${pageContext.request.contextPath}/images/${file_name}" alt="상품 이미지">
-								<input type="hidden" id="boards_productid" name="boards_productid" value="${product.product_id}">
-                           	    <h5>${product.product_name}</h5>
-                           	    
-                           	    <br><br><br>
-                                <p class="form-label">상품 만족도 <span>*</span></p>
-                            	<div class="review-stars">
-                            		<div>
-	         							<span class="star">&#9733;</span>
-	         							<span class="star">&#9733;</span>
-	  								    <span class="star">&#9733;</span>
-	         							<span class="star">&#9733;</span>
-	         							<span class="star">&#9733;</span>
-	         							<input type="hidden" id="boards_review_score" name="boards_review_score" >
-         							</div>
-      							</div>
-                            		
-                             	<p class="form-label">제목 <span>*</span></p>
-                                <input type="text" id="boards_title" name="boards_title" style="width: 400px;" required > <br>
-                                
-                                <p class="form-label">내용 <span>*</span></p>
-                                <textarea style=" width: 400px; height: 200px;" rows="70" cols="70" id="boards_content" name="boards_content" required ></textarea>
-                                
-                                <p class="form-label">사진 등록 <span></span></p>
-					      	    <div class="mb-3">
-								  <input style="height: 35px; padding-left: 12px;" class="form-control" type="file" id="formFile" multiple="multiple" name="files">
-								</div>
-								
-						      	<br><br>
-						      	<input type="hidden" name="boards_userid" id="boards_userid" value="${user_id}" >
-								<button type="submit" class="site-btn">작성완료</button>
-			                    <button type="reset" class="site-btn">다시작성</button>
-                            </form>
-                        </div>
+						<div class="contact__form" style="background-color: white; padding: 40px 60px;">
+         					<h4 style="text-align: center; font-weight: bold;">상품평 작성</h4><br><br>
+                          <form method="post" action="/product/review" enctype="multipart/form-data">
+                          
+                         	    <img src="${pageContext.request.contextPath}/images/${file_name}" alt="상품 이미지">
+						<input type="hidden" id="boards_productid" name="boards_productid" value="${product.product_id}">
+                         	    <h5>${product.product_name}</h5>
+                         	    
+                         	    <br><br><br>
+                              <p class="form-label">상품 만족도 <span>*</span></p>
+                          	<div class="review-stars">
+                          		<div>
+        							<span class="star">&#9733;</span>
+        							<span class="star">&#9733;</span>
+ 								    <span class="star">&#9733;</span>
+        							<span class="star">&#9733;</span>
+        							<span class="star">&#9733;</span>
+        							<input type="hidden" id="boards_review_score" name="boards_review_score" >
+       							</div>
+    							</div>
+                          		
+                           	<p class="form-label">제목 <span>*</span></p>
+                              <input type="text" id="boards_title" name="boards_title" style="width: 400px;" required > <br>
+                              
+                              <p class="form-label">내용 <span>*</span></p>
+                              <textarea style=" width: 400px; height: 200px;" rows="70" cols="70" id="boards_content" name="boards_content" required ></textarea>
+                              
+                              <p class="form-label">사진 등록 <span></span></p>
+			      	    <div class="mb-3">
+						  <input style="height: 35px; padding-left: 12px;" class="form-control" type="file" id="formFile" multiple="multiple" name="files">
+						</div>
+						
+				      	<br><br>
+				      	<input type="hidden" name="boards_userid" id="boards_userid" value="${user_id}" >
+						<button type="submit" class="site-btn">작성완료</button>
+	                    <button type="reset" class="site-btn">다시작성</button>
+                          </form>
+                      </div>
 
 <script>
     // 별점 Hover 및 클릭 동작

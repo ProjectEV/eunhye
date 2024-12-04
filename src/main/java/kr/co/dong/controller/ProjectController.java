@@ -37,22 +37,6 @@ public class ProjectController {
 	@Inject
 	ProjectService projectService;
 	
-	//홈-새로운 상품 띄우기(제품 등록된 날짜 순으로)
-//	@RequestMapping(value="/", method=RequestMethod.GET)
-//	public String home2(Model model) {
-//		 Map<String, Object> codeMap = new HashMap<>();
-//		 
-//		 codeMap.put("code", 1);
-//		 List<ProductVO> newList = projectService.homeList(codeMap);
-//		 model.addAttribute("newList", newList);
-//		 
-//		 codeMap.put("code", 2);
-//		 List<ProductVO> bestList = projectService.homeList(codeMap); 
-//		 model.addAttribute("bestList", bestList);
-//		 
-//		 return "home";
-//	}
-	
 	//장바구니
 	@RequestMapping(value="project/cart", method=RequestMethod.GET)
 	public String cart() {
@@ -118,7 +102,7 @@ public class ProjectController {
 		
 		//첫번째 사진만 가져옴
 		model.addAttribute("file_name", file_name.get(0));
-		
+				
 		return "review";
 	}
 		
@@ -204,7 +188,7 @@ public class ProjectController {
 		
 		return "product_list";
 	}
-	
+		
 	//정렬 검색
 	@RequestMapping(value="product/list/order", method=RequestMethod.GET)
 	public String orderSearch(@RequestParam("code") int code, HttpServletRequest request, Model model) throws Exception{
@@ -224,8 +208,16 @@ public class ProjectController {
 	//제품 상세페이지
 	@RequestMapping(value="product/detail", method=RequestMethod.GET)
 	public String ProductDetail(@RequestParam("product_id") String product_id, Model model) {
+		
+		//제품조회
 		ProductVO vo = projectService.productDetail(product_id);
 		model.addAttribute("product", vo);
+		
+		//카테고리 조회
+		Map<String, Object> codeMap = new HashMap<>();
+		codeMap.put("category", Integer.toString(vo.getProduct_category()));
+		String category = projectService.selectCategory(codeMap);
+		model.addAttribute("category", category);
 		
 		//제품의 모든 이미지 조회
 		List<String> file_name = projectService.fileSelect(product_id);
@@ -271,6 +263,8 @@ public class ProjectController {
 		//결제상세건 데이터에서 제품 데이터 가져오기
 		List<ProductVO> productVO = projectService.mypageDetailProduct(productno);
 		model.addAttribute("buy_detail_product_list", productVO);
+		model.addAttribute("imageList", listSelect(productVO));            
+
 
 		return "mypage";
 	}

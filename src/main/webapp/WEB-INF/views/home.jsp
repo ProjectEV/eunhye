@@ -52,7 +52,7 @@
 	        <div class="row">
 	            <div class="col-lg-4 col-md-4">
 	                <div class="section-title">
-	                    <h4>New product</h4>
+	                    <h4>신제품</h4>
 	                </div>
 	            </div>
 	            <div class="col-lg-8 col-md-8">
@@ -66,189 +66,36 @@
 	            </div>
 	        </div>
 	        <div class="row property__gallery">
-	        
-	            <div class="col-lg-3 col-md-4 col-sm-6 mix pc_notebook">
-	                <div class="product__item">
-	                    <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/resources/images/notebook2.jpg">
-	                        <div class="label new">New</div>
-	                        <ul class="product__hover">
-	                            <li><a href="${pageContext.request.contextPath}/resources/images/notebook2.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-	                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-	                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-	                        </ul>
-	                    </div>
-	                    <div class="product__item__text">
-	                        <h6><a href="#">Buttons tweed blazer</a></h6>
-	                        <div class="rating">
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                        </div>
-	                        <div class="product__price">$ 59.0</div>
-	                    </div>
-	                </div>
-	            </div>
-	            
-	            <div class="col-lg-3 col-md-4 col-sm-6 mix ">
-	                <div class="product__item">
-	                    <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/resources/images/notebook2.jpg">
-	                        <ul class="product__hover">
-	                            <li><a href="${pageContext.request.contextPath}/resources/images/notebook2.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-	                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-	                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-	                        </ul>
-	                    </div>
-	                    <div class="product__item__text">
-	                        <h6><a href="#">Flowy striped skirt</a></h6>
-	                        <div class="rating">
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                        </div>
-	                        <div class="product__price">$ 49.0</div>
-	                    </div>
-	                </div>
-	            </div>
-	            
-	            <div class="col-lg-3 col-md-4 col-sm-6 mix pc_notebook">
-	                <div class="product__item">
-	                    <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/resources/images/notebook2.jpg">
-	                        <div class="label stockout">out of stock</div>
-	                        <ul class="product__hover">
-	                            <li><a href="${pageContext.request.contextPath}/resources/images/notebook2.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-	                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-	                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-	                        </ul>
-	                    </div>
-	                    <div class="product__item__text">
-	                        <h6><a href="#">Cotton T-Shirt</a></h6>
-	                        <div class="rating">
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                        </div>
-	                        <div class="product__price">$ 59.0</div>
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="col-lg-3 col-md-4 col-sm-6 mix pc_notebook">
-	                <div class="product__item">
-	                    <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/resources/images/notebook2.jpg">
-	                        <ul class="product__hover">
-	                            <li><a href="${pageContext.request.contextPath}/resources/images/notebook2.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-	                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-	                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-	                        </ul>
-	                    </div>
-	                    <div class="product__item__text">
-	                        <h6><a href="#">Slim striped pocket shirt</a></h6>
-	                        <div class="rating">
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                        </div>
-	                        <div class="product__price">$ 59.0</div>
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="col-lg-3 col-md-4 col-sm-6 mix phone">
-	                <div class="product__item">
-	                    <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/resources/images/notebook2.jpg">
-	                        <ul class="product__hover">
-	                            <li><a href="${pageContext.request.contextPath}/resources/images/notebook2.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-	                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-	                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-	                        </ul>
-	                    </div>
-	                    <div class="product__item__text">
-	                        <h6><a href="#">Fit micro corduroy shirt</a></h6>
-	                        <div class="rating">
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                        </div>
-	                        <div class="product__price">$ 59.0</div>
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="col-lg-3 col-md-4 col-sm-6 mix phone">
-	                <div class="product__item sale">
-	                    <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/resources/images/notebook2.jpg">
-	                        <div class="label sale">Sale</div>
-	                        <ul class="product__hover">
-	                            <li><a href="${pageContext.request.contextPath}/resources/images/notebook2.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-	                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-	                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-	                        </ul>
-	                    </div>
-	                    <div class="product__item__text">
-	                        <h6><a href="#">Tropical Kimono</a></h6>
-	                        <div class="rating">
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                        </div>
-	                        <div class="product__price">$ 49.0 <span>$ 59.0</span></div>
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="col-lg-3 col-md-4 col-sm-6 mix cpu">
-	                <div class="product__item">
-	                    <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/resources/images/notebook2.jpg">
-	                        <ul class="product__hover">
-	                            <li><a href="${pageContext.request.contextPath}/resources/images/notebook2.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-	                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-	                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-	                        </ul>
-	                    </div>
-	                    <div class="product__item__text">
-	                        <h6><a href="#">Contrasting sunglasses</a></h6>
-	                        <div class="rating">
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                        </div>
-	                        <div class="product__price">$ 59.0</div>
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="col-lg-3 col-md-4 col-sm-6 mix etc">
-	                <div class="product__item sale">
-	                    <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/resources/images/notebook2.jpg">
-	                        <div class="label">Sale</div>
-	                        <ul class="product__hover">
-	                            <li><a href="${pageContext.request.contextPath}/resources/images/notebook2.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-	                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-	                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-	                        </ul>
-	                    </div>
-	                    <div class="product__item__text">
-	                        <h6><a href="#">Water resistant backpack</a></h6>
-	                        <div class="rating">
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                            <i class="fa fa-star"></i>
-	                        </div>
-	                        <div class="product__price">$ 49.0 <span>$ 59.0</span></div>
-	                    </div>
-	                </div>
-	            </div>
+		        <c:forEach var="newList" items="${newList}">
+		        	<div class="col-lg-3 col-md-4 col-sm-6 mix pc_notebook">
+		                <div class="product__item">
+		                	<c:forEach var="newList_image" items="${newList_image}">
+		                        <c:if test="${newList_image.file_connection_id == newList.product_id}">
+				                    <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/images/${newList_image.file_name}">
+				                        <div class="label new">New</div>
+				                        <ul class="product__hover">
+				                            <li><a href="${pageContext.request.contextPath}/images/${newList_image.file_name}" class="image-popup"><span class="arrow_expand"></span></a></li>
+				                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
+				                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+				                        </ul>
+				                    </div>
+		                    	</c:if>
+	                    	</c:forEach>
+	                    	
+		                    <div class="product__item__text">
+		                        <h6><a href="/product/detail?product_id=${newList.product_id}">${newList.product_name}</a></h6>
+		                        <div class="rating">
+		                            <i class="fa fa-star"></i>
+		                            <i class="fa fa-star"></i>
+		                            <i class="fa fa-star"></i>
+		                            <i class="fa fa-star"></i>
+		                            <i class="fa fa-star"></i>
+		                        </div>
+		                        <div class="product__price">${newList.product_price}</div>
+		                    </div>
+		                </div>
+		            </div>
+		        </c:forEach>
 	        </div>
 	    </div>
 	</section>
@@ -256,7 +103,7 @@
 
 
 
-	<section class="banner set-bg" data-setbg="${pageContext.request.contextPath}/resources/images/b1.PNG">
+	<section class="banner set-bg" data-setbg="${pageContext.request.contextPath}/resources/images/card.png">
 	    <div class="container">
 	        <div class="row">
 	            <div class="col-xl-7 col-lg-8 m-auto">
@@ -272,177 +119,45 @@
 	<section class="trend spad">
 	    <div class="container">
 	        <div class="row">
-	            <div class="col-lg-4 col-md-4 col-sm-6">
+	            <div class="col-lg-12 col-md-12 col-sm-18">
 	                <div class="trend__content">
 	                    <div class="section-title">
-	                        <h4>Hot Trend</h4>
+	                        <h4>인기 상품</h4>
 	                    </div>
-	                    <div class="trend__item">
-	                        <div class="trend__item__pic">
-	                            <img style="width: 90px; height: 90px;" src="${pageContext.request.contextPath}/resources/images/notebook2.jpg" alt="">
-	                        </div>
-	                        <div class="trend__item__text">
-	                            <h6>Chain bucket bag</h6>
-	                            <div class="rating">
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                            </div>
-	                            <div class="product__price">$ 59.0</div>
-	                        </div>
-	                    </div>
-	                    <div class="trend__item">
-	                        <div class="trend__item__pic">
-	                            <img style="width: 90px; height: 90px;" src="${pageContext.request.contextPath}/resources/images/notebook2.jpg" alt="">
-	                        </div>
-	                        <div class="trend__item__text">
-	                            <h6>Pendant earrings</h6>
-	                            <div class="rating">
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                            </div>
-	                            <div class="product__price">$ 59.0</div>
-	                        </div>
-	                    </div>
-	                    <div class="trend__item">
-	                        <div class="trend__item__pic">
-	                            <img style="width: 90px; height: 90px;" src="${pageContext.request.contextPath}/resources/images/notebook2.jpg" alt="">
-	                        </div>
-	                        <div class="trend__item__text">
-	                            <h6>Cotton T-Shirt</h6>
-	                            <div class="rating">
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                            </div>
-	                            <div class="product__price">$ 59.0</div>
-	                        </div>
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="col-lg-4 col-md-4 col-sm-6">
-	                <div class="trend__content">
-	                    <div class="section-title">
-	                        <h4>Best seller</h4>
-	                    </div>
-	                    <div class="trend__item">
-	                        <div class="trend__item__pic">
-	                            <img style="width: 90px; height: 90px;" src="${pageContext.request.contextPath}/resources/images/notebook2.jpg" alt="">
-	                        </div>
-	                        <div class="trend__item__text">
-	                            <h6>Cotton T-Shirt</h6>
-	                            <div class="rating">
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                            </div>
-	                            <div class="product__price">$ 59.0</div>
-	                        </div>
-	                    </div>
-	                    <div class="trend__item">
-	                        <div class="trend__item__pic">
-	                            <img style="width: 90px; height: 90px;" src="${pageContext.request.contextPath}/resources/images/notebook2.jpg" alt="">
-	                        </div>
-	                        <div class="trend__item__text">
-	                            <h6>Zip-pockets pebbled tote <br />briefcase</h6>
-	                            <div class="rating">
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                            </div>
-	                            <div class="product__price">$ 59.0</div>
-	                        </div>
-	                    </div>
-	                    <div class="trend__item">
-	                        <div class="trend__item__pic">
-	                            <img style="width: 90px; height: 90px;" src="${pageContext.request.contextPath}/resources/images/notebook2.jpg" alt="">
-	                        </div>
-	                        <div class="trend__item__text">
-	                            <h6>Round leather bag</h6>
-	                            <div class="rating">
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                            </div>
-	                            <div class="product__price">$ 59.0</div>
-	                        </div>
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="col-lg-4 col-md-4 col-sm-6">
-	                <div class="trend__content">
-	                    <div class="section-title">
-	                        <h4>Feature</h4>
-	                    </div>
-	                    <div class="trend__item">
-	                        <div class="trend__item__pic">
-	                            <img style="width: 90px; height: 90px;" src="${pageContext.request.contextPath}/resources/images/notebook2.jpg" alt="">
-	                        </div>
-	                        <div class="trend__item__text">
-	                            <h6>Bow wrap skirt</h6>
-	                            <div class="rating">
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                            </div>
-	                            <div class="product__price">$ 59.0</div>
-	                        </div>
-	                    </div>
-	                    <div class="trend__item">
-	                        <div class="trend__item__pic">
-	                            <img style="width: 90px; height: 90px;" src="${pageContext.request.contextPath}/resources/images/notebook2.jpg" alt="">
-	                        </div>
-	                        <div class="trend__item__text">
-	                            <h6>Metallic earrings</h6>
-	                            <div class="rating">
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                            </div>
-	                            <div class="product__price">$ 59.0</div>
-	                        </div>
-	                    </div>
-	                    <div class="trend__item">
-	                        <div class="trend__item__pic">
-	                            <img style="width: 90px; height: 90px;" src="${pageContext.request.contextPath}/resources/images/notebook2.jpg" alt="">
-	                        </div>
-	                        <div class="trend__item__text">
-	                            <h6>Flap cross-body bag</h6>
-	                            <div class="rating">
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                            </div>
-	                            <div class="product__price">$ 59.0</div>
-	                        </div>
-	                    </div>
+	                    
+						<c:forEach var="bestList" items="${bestList}" varStatus="status">
+							<c:if test="${status.index % 3 == 0}">
+								<br>
+							</c:if>
+					       <div class="trend__item" style="display: inline-block; margin: 0 25px 40px 0; width: 30%;"> 
+		                        <div class="trend__item__pic">
+			                        <c:forEach var="bestList_image" items="${bestList_image}">
+				                        <c:if test="${bestList_image.file_connection_id == bestList.product_id}">
+				                            <img style="width: 90px; height: 90px;" src="${pageContext.request.contextPath}/images/${bestList_image.file_name}" alt="">
+				                    	</c:if>
+		                    		</c:forEach>
+		                        </div>
+		                        <div class="trend__item__text">
+		                            <a href="/product/detail?product_id=${bestList.product_id}" style="text-decoration: none;"><h6>${bestList.product_name}</h6></a>
+		                            <div class="rating">
+		                                <i class="fa fa-star"></i>
+		                                <i class="fa fa-star"></i>
+		                                <i class="fa fa-star"></i>
+		                                <i class="fa fa-star"></i>
+		                                <i class="fa fa-star"></i>
+		                            </div>
+		                            <div class="product__price">${bestList.product_price}</div>
+		                        </div>
+		                    </div>
+		        		</c:forEach>
 	                </div>
 	            </div>
 	        </div>
 	    </div>
 	</section>
-
-
-<%@ include file="footer.jsp" %>
+	
+	<%@ include file="instagram.jsp" %>
+	<%@ include file="footer.jsp" %>
 
 
 </body>

@@ -140,34 +140,15 @@
 	    var address = "(" + zipcode + ") " + address1 + " (" + address2 + ")";
 	    	    
 	    document.getElementById("address_content").value = address;
-    	alert("1");
 	    
 	    var checkbox = document.getElementById('address_main');
 	    var is_checked = checkbox.checked;
-    	alert(is_checked);
-    	alert("2");
 	    
 	    if (is_checked == true) {
 	    	document.getElementById("address_main").value = 1;
-	    	alert("메인");
 	    } else {
 	    	document.getElementById("address_main").value = 0;
-	    	alert("기본");
 	    }
-    	alert("3");
-	    
-<!--   	    const checkbox = document.getElementById("stockin");-->
-
-<!--   	    checkbox.addEventListener("change", function () {-->
-<!--   	        if (checkbox.checked) {-->
-<!--   	    	    document.getElementById("address_main").value = 1;-->
-<!--   	    	    alert("메인");-->
-<!--   	        } else {-->
-<!--   	    	    document.getElementById("address_main").value = 0;-->
-<!--   	    	    alert("기본");-->
-<!--   	        }-->
-<!--   	    });-->
-   
 	}
 	
 	

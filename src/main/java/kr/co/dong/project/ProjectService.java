@@ -72,6 +72,10 @@ public interface ProjectService {
 	
 	//보드 테이블 마지막 튜플의 번호 조회
 	public int boardsNoLast();
+	
+	
+	//카테고리 조회
+	public String selectCategory(Map<String, Object> codeMap);
 
 
 }
