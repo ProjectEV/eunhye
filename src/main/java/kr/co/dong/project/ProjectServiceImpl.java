@@ -156,4 +156,10 @@ public class ProjectServiceImpl implements ProjectService {
 		return projectDAO.selectCategory(codeMap);
 	}
 
+	@Override
+	public List<ProductVO> wishlist(List<String> list) {
+		// TODO Auto-generated method stub
+		return projectDAO.wishlist(list);
+	}
+
 }

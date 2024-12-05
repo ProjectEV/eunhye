@@ -35,6 +35,11 @@ public interface ProjectService {
 	//마이페이지 Product 테이블 조회
 	public List<ProductVO> mypageDetailProduct(String[] productno);
 	
+	//위시리스트
+	public List<ProductVO> wishlist(List<String> list);
+	
+	
+	
 	//주소지 관리 주소지 리스트 조회
 	public List<AddressVO> addressManageSelect1(String userid);
 	
@@ -72,7 +77,6 @@ public interface ProjectService {
 	
 	//보드 테이블 마지막 튜플의 번호 조회
 	public int boardsNoLast();
-	
 	
 	//카테고리 조회
 	public String selectCategory(Map<String, Object> codeMap);

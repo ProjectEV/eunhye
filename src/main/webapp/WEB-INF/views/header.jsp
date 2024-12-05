@@ -158,8 +158,8 @@
 	            <div class="col-sm-4" style="padding: 17px 0 0 0; height: 90px;">
 	            	<div class="footer__newslatter">
 	                    <form action="#">
-	            			<input type="text" id="search-input" placeholder="검색어를 입력하세요." onkeypress="show_name(event)">
-	                        <button style="background: #000000;" class="site-btn" onclick="show_name(event)"><img style="height: 20px; width: 20px; 	background: #000000;" src="${pageContext.request.contextPath}/resources/images/search_white.png" alt=""></button>
+	            			<input type="text" id="search-input" placeholder="검색어를 입력하세요." onkeydown="checkEnter(event)">
+	                        <button style="background: #FFFFFF;" class="site-btn" disabled><img style="height: 20px; width: 20px; background: #FFFFFF;" src="${pageContext.request.contextPath}/resources/images/search.png" alt=""></button>
 	                    </form>
 	                </div>       
 	            </div>
@@ -178,11 +178,15 @@
                            <a href="/project/join">Register</a>
                        </div>
                        <ul class="header__right__widget">
-                           <li><a href="/product/mypage"><img style="width: 18px; height: 18px; padding: 0 0 2px 0;" src="${pageContext.request.contextPath}/resources/images/mypage.png" alt=""></span>
-                           </a></li>
-                           <li><a href="/project/cart"><span class="icon_bag_alt"></span>
-                               <div class="tip" id="cartItemCount"></div>
-                           </a></li>
+                           <li>
+                           		<a href="/product/mypage"><img style="width: 18px; height: 18px; padding: 0 0 2px 0;" src="${pageContext.request.contextPath}/resources/images/mypage.png" alt=""></span></a>
+                           </li>
+                           <li>
+                           		<a href="/product/wishlist"><span class="icon_heart_alt"></span><div class="tip">2</div></a>
+                           </li>
+                           <li>
+                           		<a href="/project/cart"><span class="icon_bag_alt"></span><div class="tip" id="cartItemCount"></div></a>
+                           </li>
                        </ul>
                    </div>
 	            </div>
@@ -195,13 +199,22 @@
 	<!-- Header Section End -->
 	
 	<script type="text/javascript">
-        function show_name(e){
-           e.preventDefault();
-	   	   var keyword = document.getElementById("search-input").value;
-           const code = e.code;
-  		   location.href = "/product/list?keyword="+keyword;
+        function checkEnter(event) {
+            if (event.key === "Enter") {
+                event.preventDefault(); // 엔터키 기본 동작 막기
+                var keyword = document.getElementById("search-input").value;
+                if (keyword.trim() === "") {
+                    alert("검색어를 입력해주세요.");
+                    return;
+                }
+                location.href = "/product/list?keyword="+keyword;
+            }
         }
+        
     </script>
+    
+    
+    
     
     </body>
 </html>

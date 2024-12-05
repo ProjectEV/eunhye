@@ -155,4 +155,10 @@ public class ProjectDAOImpl implements ProjectDAO {
 		return sqlSession.selectOne(nameSpace + ".selectCategory", codeMap);
 	}
 
+	@Override
+	public List<ProductVO> wishlist(List<String> list) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(nameSpace + ".wishlist", list);
+	}
+
 }

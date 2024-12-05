@@ -163,6 +163,19 @@
 	    </foreach>
 	</select>
 	
+	<!-- 찜 목록 -->
+   	<select id="wishlist" parameterType="java.lang.String" resultType="ProductVO">
+	    select * 
+	    from product 
+	    where product_id in 
+	    <foreach collection="array" item="productno" open="(" separator="," close=")">
+	        #{productno}
+	    </foreach>
+	</select>
+	
+	
+	
+	
 	<!-- 주소지 조회(get) -->
    <select id="addressManageSelect1" parameterType="java.lang.String" resultType="AddressVO">
 	  select *

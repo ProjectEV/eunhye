@@ -21,8 +21,10 @@
                         <a href="/"><i class="fa fa-home"></i>Home</a>
                         <a href="/">마이페이지</a>
                         <span style="">주문목록</span>
-                        <span style="width: 750px"></span>
-                        <button type="submit" class="site-btn" onclick="windowOpen()">주소지 관리</button>
+                        <span style="width: 500px"></span>
+                        <button style="margin: 0 5px;" type="submit" class="site-btn" onclick="location.href='/product/mypage'">주문목록</button>
+                        <button style="margin: 0 5px;" type="submit" class="site-btn" onclick="location.href='/product/mypage/cancle'">취소목록</button>
+                        <button style="margin: 0 0;" type="submit" class="site-btn" onclick="windowOpen()">주소지 관리</button>
                     </div>
                 </div>
             </div>

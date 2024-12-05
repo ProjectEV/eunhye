@@ -50,7 +50,24 @@
     </footer>
     <!-- Footer Section End -->
     
-        <!-- Js Plugins -->
+    <script type="text/javascript">
+	    function addToWishlist(productId) {
+            alert('찜하기');
+	        $.ajax({
+	            url: '/wishlist/add',
+	            method: 'POST',
+	            data: { productId: productId },
+	            success: function() {
+	                alert('찜한 상품에 추가되었습니다!');
+	            },
+	            error: function() {
+	                alert('찜하기에 실패했습니다.');
+	            }
+	        });
+	    }
+    </script>
+    
+    <!-- Js Plugins -->
     <script src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/jquery.magnific-popup.min.js"></script>
