@@ -31,6 +31,7 @@
 	<div style="padding: 70px">
 	   	  <div class="contact__form">
 				<div style="margin: 0 0 60px 0">
+					<a href="/product/address_manage" style=""><img style="width: 20px; height: 20px;" src="${pageContext.request.contextPath}/resources/images/prev.png" alt=""></a>
 					<h4 style="text-align: center; font-weight: bold;">배송지 수정</h4>
 				</div>				
 				<form method="post" action="${pageContext.request.contextPath}/product/address_manage/update">
@@ -176,6 +177,9 @@
 	    document.getElementById("address2").value = detailedAddress || '';
 	}
 
+    function close() {
+    	location.href="/product/address_manage";
+    }
 
 	</script>
 
