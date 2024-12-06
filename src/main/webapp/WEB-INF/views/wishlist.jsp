@@ -34,7 +34,7 @@
 				                    <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/images/${imageList.file_name}">
 				                        <ul class="product__hover">
 				                            <li><a href="${pageContext.request.contextPath}/images/${imageList.file_name}" class="image-popup"><span class="arrow_expand"></span></a></li>
-				                            <li><a href="/product/wishlist/delete?product_id=${product.product_id}"><span class="icon_heart_alt"></span></a></li>
+				                            <li><a href="/product/wishlist/delete?product_id=${product.product_id}" style="background-color: #ca1515;"><span style="color: white;" class="icon_heart_alt"></span></a></li>
 				                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
 				                        </ul>
 				                    </div>
@@ -50,7 +50,7 @@
 		                            <i class="fa fa-star"></i>
 		                            <i class="fa fa-star"></i>
 		                        </div>
-		                        <div class="product__price">${product.product_price}</div>
+		                        <div class="product__price">${product.product_price}원</div>
 		                    </div>
 		                </div>
 		            </div>
