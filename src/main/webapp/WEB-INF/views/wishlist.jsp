@@ -15,9 +15,49 @@
 
 	<%@ include file="header.jsp" %>
 
-	<c:forEach var="product" items="${products}">
-    	<li>${product.name} - ${product.price}원</li>
-    </c:forEach>
+    <section class="product spad">
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-lg-4 col-md-4">
+	                <div class="section-title">
+	                    <h4>관심목록</h4>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="row property__gallery">
+		        <c:forEach var="product" items="${products}">
+		        	<div class="col-lg-3 col-md-4 col-sm-6 mix pc_notebook">
+		                <div class="product__item">
+		                
+		                	<c:forEach var="imageList" items="${imageList}">
+		                        <c:if test="${imageList.file_connection_id == product.product_id}">
+				                    <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/images/${imageList.file_name}">
+				                        <ul class="product__hover">
+				                            <li><a href="${pageContext.request.contextPath}/images/${imageList.file_name}" class="image-popup"><span class="arrow_expand"></span></a></li>
+				                            <li><a href="/product/wishlist/delete?product_id=${product.product_id}"><span class="icon_heart_alt"></span></a></li>
+				                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+				                        </ul>
+				                    </div>
+		                    	</c:if>
+	                    	</c:forEach>
+	                    	
+		                    <div class="product__item__text">
+		                        <h6><a href="/product/detail?product_id=${product.product_id}">${product.product_name}</a></h6>
+		                        <div class="rating">
+		                            <i class="fa fa-star"></i>
+		                            <i class="fa fa-star"></i>
+		                            <i class="fa fa-star"></i>
+		                            <i class="fa fa-star"></i>
+		                            <i class="fa fa-star"></i>
+		                        </div>
+		                        <div class="product__price">${product.product_price}</div>
+		                    </div>
+		                </div>
+		            </div>
+		        </c:forEach>
+	        </div>
+	    </div>
+	</section>
 
 	<%@ include file="instagram.jsp" %>
 	<%@ include file="footer.jsp" %>

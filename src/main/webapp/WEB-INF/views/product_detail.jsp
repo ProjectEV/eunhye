@@ -8,9 +8,14 @@
 <head>
 </head>
 
-<body>
-    
+<body>    
     <%@ include file="header.jsp" %>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+	    $(function () {
+	    	wishState2();
+	    });
+	</script>
 
     <!-- Breadcrumb Begin -->
     <div class="breadcrumb-option">
@@ -81,77 +86,12 @@
                                        <input type="number" class="quantity-input" name="amount" value="1">
                                    </div>
                                </div>
-                               
                                <a href="javascript:;" onclick="document.getElementById('cart').submit();" class="cart-btn"><span class="icon_bag_alt"></span> 장바구니</a>
                             </form>
-                            
-                            <!-- 
-                            <ul>
-                                <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                <li><a href="#"><span class="icon_adjust-horiz"></span></a></li>
-                            </ul>
-                             -->
+	                            <ul>
+	                            	<li><span id="wish"></span></li>
+	                            </ul>
                         </div>
-                        
-                        <!-- 
-                        <div class="product__details__widget">
-                            <ul>
-                                <li>
-                                    <span>Availability:</span>
-                                    <div class="stock__checkbox">
-                                        <label for="stockin">
-                                            In Stock
-                                            <input type="checkbox" id="stockin">
-                                            <span class="checkmark"></span>     
-                                        </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span>Available color:</span>
-                                    <div class="color__checkbox">
-                                        <label for="red">
-                                            <input type="radio" name="color__radio" id="red" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                        <label for="black">
-                                            <input type="radio" name="color__radio" id="black">
-                                            <span class="checkmark black-bg"></span>
-                                        </label>
-                                        <label for="grey">
-                                            <input type="radio" name="color__radio" id="grey">
-                                            <span class="checkmark grey-bg"></span>
-                                        </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span>Available size:</span>
-                                    <div class="size__btn">
-                                        <label for="xs-btn" class="active">
-                                            <input type="radio" id="xs-btn">
-                                            xs
-                                        </label>
-                                        <label for="s-btn">
-                                            <input type="radio" id="s-btn">
-                                            s
-                                        </label>
-                                        <label for="m-btn">
-                                            <input type="radio" id="m-btn">
-                                            m
-                                        </label>
-                                        <label for="l-btn">
-                                            <input type="radio" id="l-btn">
-                                            l
-                                        </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span>Promotions:</span>
-                                    <p>Free shipping</p>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        -->
                     </div>
                 </div>
                 <div class="col-lg-12">
@@ -292,6 +232,61 @@
     
 	<%@ include file="instagram.jsp" %>
 	<%@ include file="footer.jsp" %>
+	
+	<!-- 찜 유무 판별 -->
+    <script type="text/javascript">
+	    function wishListAddDetail(product_id) {
+	        $.ajax({
+	            url: '/product/wishlist/add',
+	            method: 'GET',
+	            data: {product_id: product_id},
+	            success: function() {
+					alert("관심목록에 추가되었습니다!");
+					wishState2();
+	            },
+	            error: function() {
+					alert("추가에 실패했습니다.");
+	            }
+	        });
+	    }
+	    
+	    function wishListDeleteDetail(product_id) {
+	        $.ajax({
+	            url: '/product/wishlist/delete',
+	            method: 'GET',
+	            data: {product_id: product_id},
+	            success: function() {
+					alert("관심목록에서 삭제 되었습니다!");
+					wishState2();
+	            },
+	            error: function() {
+					alert("삭제에 실패했습니다.");
+	            }
+	        });
+	    }
+	    
+	    function wishState2() {
+	        var productId = "${product.product_id}";
+	        $.ajax({
+	            url: '/product/wishlist/state',
+	            method: 'GET',
+	            data: { "product_id": productId },
+	            success: function (result) {
+	                var htmls = "";
+	                if (result === true) {
+	                    htmls += '<li><a style="background-color: #ca1515;" href="javascript:void(0);" onclick="wishListDeleteDetail(\'' + productId + '\');"><span style="color: white;" class="icon_heart_alt"></span></a></li>';
+	                } else {
+	                    htmls += '<li><a href="javascript:void(0);" onclick="wishListAddDetail(\'' + productId + '\');"><span class="icon_heart_alt"></span></a></li>';
+	                }
+	                $("#wish").html(htmls);
+	            },
+	            error: function () {
+	                alert("관심목록 판별에 실패하였습니다.");
+	            }
+	        });
+	    
+	    }
+    </script>
 
 </body>
 

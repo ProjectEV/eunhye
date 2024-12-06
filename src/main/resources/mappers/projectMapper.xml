@@ -168,13 +168,10 @@
 	    select * 
 	    from product 
 	    where product_id in 
-	    <foreach collection="array" item="productno" open="(" separator="," close=")">
-	        #{productno}
+	    <foreach collection="list" item="item" open="(" separator="," close=")">
+	        #{item}
 	    </foreach>
 	</select>
-	
-	
-	
 	
 	<!-- 주소지 조회(get) -->
    <select id="addressManageSelect1" parameterType="java.lang.String" resultType="AddressVO">

@@ -1,6 +1,10 @@
 package kr.co.dong.controller;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -9,7 +13,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 import javax.servlet.http.Cookie;
@@ -19,13 +22,12 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -233,6 +235,8 @@ public class ProjectController {
 		
 		//상품평
 		
+		//상품문의
+		
 		return "product_detail";
 	}
 	
@@ -359,116 +363,207 @@ public class ProjectController {
 	
 	//찜 목록
 	@RequestMapping(value="product/wishlist", method=RequestMethod.GET)
-	public String wishlist(@CookieValue(value = "wishlist", defaultValue = "") String wishlist,
-            Model model) {
+	public String wishlist(Model model, HttpSession session, HttpServletRequest request) {
+		
+		Map<String, Object> user = (Map)session.getAttribute("user");
+//		String userid = (String)user.get("user_id");
+		String userid = "yoonho";
+		
+	    if (userid.isEmpty()) {
+	    	//알럴트 문 추가
+	        return "redirect:/"; // 로그인 필요
+	    }
 
-        
-        if (wishlist.isEmpty()) {
-            model.addAttribute("products", Collections.emptyList());
-        } else {
-            // 쿠키에서 제품 ID 목록 읽기
-            List<String> product_ids = Arrays.asList(wishlist.split(","));
-            
-//    		String[] product_ids_list = new String[product_ids.size()];
-//    		for(int i=0; i<product_ids.size(); i++) {
-//    			product_ids_list[i] = product_ids.get(i);
-//    		}
+	    String cookieName = "wishlist_" + userid; // 계정별 쿠키 이름 생성
 
-            // DB에서 제품 정보 조회
-            List<ProductVO> products = projectService.wishlist(product_ids);
-            model.addAttribute("products", products);
-        }
+	    Cookie[] cookies = request.getCookies(); // 요청에서 쿠키 가져오기
+	    String wishlist = "";
+
+	    if (cookies != null) {
+	        for (Cookie cookie : cookies) {
+	            if (cookieName.equals(cookie.getName())) { // 사용자 쿠키 이름과 일치하는 쿠키 찾기
+	                wishlist = cookie.getValue();
+	                break;
+	            }
+	        }
+	    }
 		
-//				// 1. 기존 쿠키에서 장바구니 데이터 가져오기
-//			      String cartData = null;
-//			      Cookie[] cookies = request.getCookies();
-//			      if (cookies != null) {
-//			         for (Cookie cookie : cookies) {
-//			            if ("cart".equals(cookie.getName())) {
-//			               cartData = cookie.getValue();
-//			               break;
-//			            }
-//			         }
-//			      }
-//			      
-//			      // 2. JSON으로 장바구니 데이터 파싱
-//			      List<CartItemVO> cartItems = new ArrayList<>();
-//			      ObjectMapper objectMapper = new ObjectMapper(); // JSON 처치 라이브러리
-//			      String decodedCartData = null;
-//			      
-//			      if (cartData != null) {
-//			         try {
-//			            decodedCartData = URLDecoder.decode(cartData, "UTF-8");
-//			            cartItems = objectMapper.readValue(decodedCartData, new TypeReference<List<CartItemVO>>() {});
-//			         } catch (JsonProcessingException e) {
-//			            e.printStackTrace();
-//			         }
-//			      }
-//			      
-//			      
-//			      
-//			      
-//			      // 3. 새로운 항목 추가
-//			      CartItemVO newItem = new CartItemVO();
-//			      newItem.setPno(pno);
-//			      newItem.setCartQuant(quantity);
-//			      newItem.setCno(cno);
-//			      
-//			      // 기존 장바구니에 동일 상품이 있는지 확인
-//			      boolean exists = false;
-//			      for (CartItemVO item : cartItems) {
-//			         if (item.getPno() == newItem.getPno()) {
-//			            item.setCartQuant(item.getCartQuant() + quantity);
-//			            exists = true;
-//			            break;
-//			         }
-//			      }
-//			      
-//			      
-//			      // 동일 상품이 없으면 추가
-//			      if (exists == false) {
-//			         cartItems.add(newItem);
-//			      }
-//			      
-//			      
-//			      
-//			      // 4. 업데이트된 데이터를 쿠키에 저장
-//			      try {
-//			         String updatedCartData = objectMapper.writeValueAsString(cartItems);
-//			         String encodedCartData = URLEncoder.encode(updatedCartData, "UTF-8");
-//			         
-//			         Cookie cartCookie = new Cookie("cart", encodedCartData);
-//			         
-//			         cartCookie.setPath("/"); // 쿠키의 유효 경로
-//			         cartCookie.setMaxAge(7 * 24 * 60 * 60);
-//			         response.addCookie(cartCookie);
-//			      } catch (JsonProcessingException e) {
-//			         e.printStackTrace(); // 직렬화 실패 시 로그
-//			      }
-//			      
-//			   }
-		
-		
-		return "wishlist";
+	    try {
+	        if (wishlist.isEmpty()) {
+	            model.addAttribute("products", Collections.emptyList());
+	        } else {
+	            String decodedWishlist = URLDecoder.decode(wishlist, StandardCharsets.UTF_8.name());
+	            List<String> productIds = Arrays.asList(decodedWishlist.split(","));
+	            List<ProductVO> products = projectService.wishlist(productIds);
+	    		model.addAttribute("imageList", listSelect(products));
+	            model.addAttribute("products", products);
+	        }
+	        return "wishlist";
+	    } catch (UnsupportedEncodingException e) {
+	        model.addAttribute("products", Collections.emptyList());
+	        return "wishlist";
+	    }		
 	}
 
 	//찜 추가
-	@RequestMapping(value="product/wishlist/add", method=RequestMethod.POST)
-	 public ResponseEntity<Void> wishlistAdd(@RequestParam("product_id") String product_id,
-        HttpServletResponse response, @CookieValue(value = "wishlist", defaultValue = "") String wishlist) {
+	@RequestMapping(value="product/wishlist/add", method=RequestMethod.GET)
+	 public String wishlistAdd(@RequestParam("product_id") String product_id,
+        HttpServletResponse response, HttpSession session, HttpServletRequest request) {
 		
-		// 쿠키에서 기존 찜 목록 가져오기
-		Set<String> product_id_list = new HashSet<>(Arrays.asList(wishlist.split(",")));
-		product_id_list.add(product_id); // 새로운 제품 추가
+	    // 사용자 정보 가져오기
+	    Map<String, Object> user = (Map<String, Object>) session.getAttribute("user");
+	    // String userid = (String) user.get("user_id");
+	    String userid = "yoonho"; // 테스트용 고정값
+
+	    if (userid.isEmpty()) {
+	        return "redirect:/login"; // 로그인 필요
+	    }
+
+	    String cookieName = "wishlist_" + userid;
+	    String wishlist = "";
+
+	    // 쿠키 가져오기
+	    Cookie[] cookies = request.getCookies();
+	    if (cookies != null) {
+	        for (Cookie cookie : cookies) {
+	            if (cookieName.equals(cookie.getName())) { // 사용자 쿠키 이름과 일치하는 쿠키 찾기
+	                wishlist = cookie.getValue();
+	                break;
+	            }
+	        }
+	    }
 		
-		// 쿠키에 저장 (CSV 형식)
-		Cookie cookie = new Cookie("wishlist", String.join(",", product_id_list));
-		cookie.setPath("/");
-		cookie.setMaxAge(7 * 24 * 60 * 60); // 7일 유지
-		response.addCookie(cookie);
-		
-		return ResponseEntity.ok().build();
+		try {
+	        // 기존 찜 목록을 URL 디코딩하여 처리
+	        String decodedWishlist = URLDecoder.decode(wishlist, StandardCharsets.UTF_8.name());
+	        
+	        // "," 를 기준으로 나눠서 저장	
+	        // HashSet은 중복을 자동으로 제거해주는 타입
+	        Set<String> productIds = new HashSet<>(Arrays.asList(decodedWishlist.split(",")));
+	        productIds.add(product_id); // 새로운 제품 추가
+
+	        // 쿠키에 저장 (URL 인코딩)
+	        String encodedWishlist = URLEncoder.encode(String.join(",", productIds), StandardCharsets.UTF_8.name());
+	        Cookie cookie = new Cookie(cookieName, encodedWishlist);
+	        cookie.setPath("/");
+	        cookie.setMaxAge(30 * 24 * 60 * 60); // 30일 유지
+	        response.addCookie(cookie);
+
+//	        return ResponseEntity.ok().build();
+	        return "redirect:/";
+	    } catch (UnsupportedEncodingException e) {
+//	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+	    	return "redirect:/";
+	    }
 	}
+		
+	//찜 삭제
+	@RequestMapping(value = "product/wishlist/delete", method = RequestMethod.GET)
+	public String wishlistDelete(@RequestParam("product_id") String product_id,
+	                              HttpServletResponse response, HttpSession session, HttpServletRequest request) {
+
+	    // 사용자 정보 가져오기
+	    Map<String, Object> user = (Map<String, Object>) session.getAttribute("user");
+	    // String userid = (String) user.get("user_id");
+	    String userid = "yoonho"; // 테스트용 고정값
+
+	    if (userid.isEmpty()) {
+	        return "redirect:/login"; // 로그인 필요
+	    }
+
+	    String cookieName = "wishlist_" + userid;
+	    String wishlist = "";
+
+	    // 쿠키 가져오기
+	    Cookie[] cookies = request.getCookies();
+	    if (cookies != null) {
+	        for (Cookie cookie : cookies) {
+	            if (cookieName.equals(cookie.getName())) { // 사용자 쿠키 이름과 일치하는 쿠키 찾기
+	                wishlist = cookie.getValue();
+	                break;
+	            }
+	        }
+	    }
+
+	    try {
+	        // 기존 찜 목록을 URL 디코딩하여 처리
+	        String decodedWishlist = URLDecoder.decode(wishlist, StandardCharsets.UTF_8.name());
+
+	        // "," 를 기준으로 나눠서 저장	
+	        Set<String> productIds = new HashSet<>(Arrays.asList(decodedWishlist.split(",")));
+
+	        // 특정 제품 ID 제거
+	        productIds.remove(product_id); // 제거할 제품 아이디
+
+	        // 빈 목록이면 쿠키를 삭제
+	        if (productIds.isEmpty()) {
+	            Cookie cookie = new Cookie(cookieName, "");
+	            cookie.setPath("/");
+	            cookie.setMaxAge(0); // 쿠키 삭제
+	            response.addCookie(cookie);
+	        } else {
+	            // 쿠키에 저장 (URL 인코딩)
+	            String encodedWishlist = URLEncoder.encode(String.join(",", productIds), StandardCharsets.UTF_8.name());
+	            Cookie cookie = new Cookie(cookieName, encodedWishlist);
+	            cookie.setPath("/");
+	            cookie.setMaxAge(30 * 24 * 60 * 60); // 30일 유지
+	            response.addCookie(cookie);
+	        }
+
+	        return "redirect:/product/wishlist"; // 찜 목록에서 삭제 후 홈으로 리디렉션
+	    } catch (UnsupportedEncodingException e) {
+	        return "redirect:/product/wishlist"; // 에러 처리
+	    }
+	}
+	
+	//찜 유무 조회
+	@RequestMapping(value = "product/wishlist/state", method = RequestMethod.GET)
+	@ResponseBody
+	public boolean isProductInWishlist(@RequestParam("product_id") String productId,
+	                                   HttpSession session, HttpServletRequest request) {
+	    // 사용자 정보 가져오기
+	    Map<String, Object> user = (Map<String, Object>) session.getAttribute("user");
+	    String userId = "yoonho";
+
+	    if (userId.isEmpty()) {
+	        return false;
+	    }
+
+	    String cookieName = "wishlist_" + userId;
+	    String wishlist = "";
+
+	    // 쿠키에서 사용자 쿠키 값 가져오기
+	    Cookie[] cookies = request.getCookies();
+	    if (cookies != null) {
+	        for (Cookie cookie : cookies) {
+	            if (cookieName.equals(cookie.getName())) {
+	                wishlist = cookie.getValue();
+	                break;
+	            }
+	        }
+	    }
+
+	    try {
+	        // 쿠키 값이 비어 있으면 false
+	        if (wishlist.isEmpty()) {
+	            return false;
+	        }
+
+	        // URL 디코딩 후 제품 ID 목록 생성
+	        String decodedWishlist = URLDecoder.decode(wishlist, StandardCharsets.UTF_8.name());
+	        Set<String> productIds = new HashSet<>(Arrays.asList(decodedWishlist.split(",")));
+
+	        // 특정 product_id가 포함되어 있는지 확인
+	        return productIds.contains(productId);
+
+	    } catch (UnsupportedEncodingException e) {
+	        e.printStackTrace();
+	        return false; // 에러가 발생한 경우 false 반환
+	    }
+	}
+
+
+	
 
 
 

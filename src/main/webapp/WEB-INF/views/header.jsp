@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="zxx">
+<meta charset="UTF-8">
+<title>TechNova</title>
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Ashion Template">
@@ -182,7 +185,7 @@
                            		<a href="/product/mypage"><img style="width: 18px; height: 18px; padding: 0 0 2px 0;" src="${pageContext.request.contextPath}/resources/images/mypage.png" alt=""></span></a>
                            </li>
                            <li>
-                           		<a href="/product/wishlist"><span class="icon_heart_alt"></span><div class="tip">2</div></a>
+                           		<a href="/product/wishlist"><span class="icon_heart_alt"></span></a>
                            </li>
                            <li>
                            		<a href="/project/cart"><span class="icon_bag_alt"></span><div class="tip" id="cartItemCount"></div></a>

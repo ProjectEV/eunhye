@@ -50,18 +50,18 @@
     </footer>
     <!-- Footer Section End -->
     
+    <!-- 찜 추가 -->
     <script type="text/javascript">
-	    function addToWishlist(productId) {
-            alert('찜하기');
+	    function wishListAdd(product_id) {
 	        $.ajax({
-	            url: '/wishlist/add',
-	            method: 'POST',
-	            data: { productId: productId },
+	            url: '/product/wishlist/add',
+	            method: 'GET',
+	            data: {product_id: product_id},
 	            success: function() {
-	                alert('찜한 상품에 추가되었습니다!');
+					alert("관심목록에 추가되었습니다!");
 	            },
 	            error: function() {
-	                alert('찜하기에 실패했습니다.');
+					alert("관심목록 추가에 실패하였습니다!");
 	            }
 	        });
 	    }
